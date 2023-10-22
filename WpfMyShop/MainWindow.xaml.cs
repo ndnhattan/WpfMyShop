@@ -101,7 +101,8 @@ namespace WpfMyShop
                 return _connection;
             });
 
-            // save username and password if user check Remeber me
+            // save username, password if user check Remeber me
+            // and delete username, password if user do not check Remeber me
             if (connection != null)
             {
                 MessageBox.Show(
@@ -128,6 +129,16 @@ namespace WpfMyShop
 
                     ConfigurationManager.RefreshSection("appSettings");
                 }
+                else
+                {
+                    var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings["Username"].Value = "";
+                    config.AppSettings.Settings["Password"].Value = "";
+                    config.AppSettings.Settings["Entropy"].Value = "";
+                    config.Save(ConfigurationSaveMode.Minimal);
+
+                    ConfigurationManager.RefreshSection("appSettings");
+                }
             }
             else
             {
@@ -140,7 +151,7 @@ namespace WpfMyShop
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Load username and password
+            // Load username, password and check RememberMe
             var passwordIn64 = ConfigurationManager.AppSettings["Password"];
             if (passwordIn64.Length != 0)
             {
@@ -152,6 +163,7 @@ namespace WpfMyShop
                 var password = Encoding.UTF8.GetString(passwordInBytes);
                 txtPasswordBox.Password = password;
                 txtEmail.Text = ConfigurationManager.AppSettings["Username"];
+                RememberMe.SetCurrentValue(CheckBox.IsCheckedProperty, true);
             }
 
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
