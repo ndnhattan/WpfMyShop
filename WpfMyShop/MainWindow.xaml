@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfMyShop"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
@@ -33,13 +34,23 @@
             </Canvas>
         </Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock  Style="{StaticResource titleWelcom}">
-            <Run Text="Welcom"/> <LineBreak/> <Run Text="Back!"/>
+            <TextBlock Style="{StaticResource titleWelcom}">
+            <Run Text="Welcome"/> <LineBreak/> <Run Text="Back!"/>
             </TextBlock>
         </StackPanel>
         <Border Background="#ffffff" Grid.Column="1" CornerRadius="0 10 10 0">
             <StackPanel>
                 <Image x:Name="imgClose" Source="assets/close.png" Style="{StaticResource imgClose}"/>
+
+                <Button
+  materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+  materialDesign:ButtonProgressAssist.Value="-1"
+  Content="{materialDesign:PackIcon DotsHorizontal}"
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  Style="{StaticResource MaterialDesignFloatingActionButton}" />
+
+
                 <TextBlock Text="Login" FontSize="35" Margin="50 20 0 0"
                        FontWeight="Bold" Foreground="#FF2B5275"/>
                 <TextBlock Style="{StaticResource textNormal}" Margin="50 10 0 15" Foreground="#FF8EA2B4">
