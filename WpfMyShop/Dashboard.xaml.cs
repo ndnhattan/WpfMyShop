@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfMyShop.pages;
 
 namespace WpfMyShop
 {
@@ -49,6 +50,12 @@ namespace WpfMyShop
                     IsMaximized = true;
                 }
             }
+        }
+
+        
+        private void ProductBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new ProductPage();
         }
     }
 }

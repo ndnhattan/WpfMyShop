@@ -74,8 +74,8 @@ namespace WpfMyShop
             string password = txtPasswordBox.Password;
 
             var builder = new SqlConnectionStringBuilder();
-            builder.DataSource = ".\\SQLSERVER2016"; // tên server demo
-            builder.InitialCatalog = "MyShop"; // tên database demo
+            builder.DataSource = "DESKTOP-3A921M2"; // tên server demo
+            builder.InitialCatalog = "my_shop"; // tên database demo
             builder.UserID = username;
             builder.Password = password;
             builder.TrustServerCertificate = true;
@@ -139,12 +139,13 @@ namespace WpfMyShop
 
                     ConfigurationManager.RefreshSection("appSettings");
                 }
+                new Dashboard().Show();
+                this.Close();
             }
             else
             {
                 // Cannot connect to db
-                MessageBox.Show(
-                    $"Cannot connect"
+                MessageBox.Show(                    $"Cannot connect"
                 );
             }
         }
