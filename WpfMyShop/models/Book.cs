@@ -14,8 +14,12 @@ namespace WpfMyShop.model
         public string Image { get; set; }
         public string Author { get; set; }
         public int Year { get; set; }
+        public int Cost { get; set; }
         public int Price { get; set; }
         public int PromoPrice { get; set; }
+        public int Stock { get; set; }
+        public int Sold { get; set; }
+        public int GenreId { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

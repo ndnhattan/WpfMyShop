@@ -1,0 +1,122 @@
+﻿<Page x:Class="WpfMyShop.pages.DetailProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WpfMyShop.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:converters="clr-namespace:WpfMyShop.utils"
+      Title="DetailProductPage" Loaded="Window_Loaded">
+
+    <Page.Resources>
+        <converters:PathConverter x:Key="pathConverter"/>
+        <converters:PriceConverter x:Key="priceConverter"/>
+        <converters:GenreConverter x:Key="genreConverter"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone
+            Grid.Row="0"
+            Padding="16"
+            Mode="PrimaryLight"
+            Background="#3AA9AD">
+            <TextBlock
+                Margin="16,0,0,0"
+                VerticalAlignment="Center"
+                Name="ProductNameTitle"
+                FontSize="25"
+                Text="Thông tin chi tiết"/>
+        </materialDesign:ColorZone>
+
+        <Grid Grid.Row="1" Margin="0,10,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="imageBook" 
+                Height="auto" 
+                Source="{Binding Image, Converter={StaticResource pathConverter}}" 
+                Stretch="Uniform" 
+                d:Source="khanhbinh.jpg"
+                Grid.Column="0"/>
+
+            <Grid Height="350" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Grid.Row="0" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockName">
+                        <Run Text="Tên: " FontWeight="Bold"/> <Run Text="{Binding Name}"/>
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockAuthor" >
+                        <Run Text="Tác giả: " FontWeight="Bold"/> <Run Text="{Binding Author}"/>
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox  Grid.Row="2" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockCost" >
+                        <Run Text="Giá mua: " FontWeight="Bold"/> <Run Text="{Binding Cost, Converter={StaticResource priceConverter}}"/>
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Row="3" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockPrice" Grid.Row="3">
+                        <Run Text="Giá bán gốc: " FontWeight="Bold"/> <Run Text="{Binding Price, Converter={StaticResource priceConverter}}"/>
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Row="4" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockPromo">
+                        <Run Text="Giá bán sau khi giảm: " FontWeight="Bold"/> <Run Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}"/>
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Row="5" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockYear">
+                        <Run Text="Năm xuất bản: " FontWeight="Bold"/> <Run Text="{Binding Year}"/>
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Row="6" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockSold">
+                        <Run Text="Đã bán: " FontWeight="Bold"/> <Run Text="{Binding Sold}"/>
+                    </TextBlock>
+                </Viewbox>
+
+                <Viewbox Grid.Row="7" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockStock" >
+                        <Run Text="Còn lại: " FontWeight="Bold"/> <Run Text="{Binding Stock}"/>
+                    </TextBlock>
+                </Viewbox>
+
+                <Viewbox Grid.Row="8" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TextblockGenre" >
+                        <Run Text="Thể loại: " FontWeight="Bold"/> <Run Text="{Binding GenreId, Converter={StaticResource genreConverter}}"/>
+                    </TextBlock>
+                </Viewbox>
+                <Button x:Name="addCardBtn" Content="Thêm vào giỏ hảng" Grid.Row="9" Background="#3AA9AD" Width="250" HorizontalAlignment="Left"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="deleteBtn" Content="Delete" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click"/>
+            <Button x:Name="EditBtn" Content="Edit" Grid.Column="2" Width="150" Background="#3AA9AD" Click="EditBtn_Click"/>
+        </Grid>
+    </Grid>
+</Page>

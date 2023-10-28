@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Images\khanhbinh.jpg" />
+    <None Remove="pages\khanhbinh.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,9 @@
 
   <ItemGroup>
     <Resource Include="Images\khanhbinh.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="pages\khanhbinh.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="resources\ProductPageResources.xaml" />
