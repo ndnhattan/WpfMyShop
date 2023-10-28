@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfMyShop.model;
 
 namespace WpfMyShop
 {
@@ -105,9 +106,6 @@ namespace WpfMyShop
             // and delete username, password if user do not check Remeber me
             if (connection != null)
             {
-                MessageBox.Show(
-                    $"Connected"
-                );
                 if (RememberMe.IsChecked == true)
                 {
                     var passwordInBytes = Encoding.UTF8.GetBytes(password);
@@ -139,6 +137,7 @@ namespace WpfMyShop
 
                     ConfigurationManager.RefreshSection("appSettings");
                 }
+                DB.Instance.ConnectionString = connectionString;
                 new Dashboard().Show();
                 this.Close();
             }
