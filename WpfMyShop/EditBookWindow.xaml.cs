@@ -63,13 +63,13 @@ namespace WpfMyShop
                     int index = books.IndexOf(books.FirstOrDefault(book => book.Id == id));
                     books[index] = EditedBook;
 
-                    MessageBox.Show("Edit successfully");
+                    MessageBox.Show("Sửa thành công");
                     DialogResult = true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Edit failed");
+                MessageBox.Show("Sửa thất bại");
                 DialogResult = false;
             }
         }
@@ -82,6 +82,7 @@ namespace WpfMyShop
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = EditedBook;
+            TextboxName.Focus();
         }
     }
 }

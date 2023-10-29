@@ -64,7 +64,7 @@ namespace WpfMyShop.pages
                 // delete data in bindingList
                 Book foundBook = books.FirstOrDefault(book => book.Id == id);
                 books.Remove(foundBook);
-                MessageBox.Show("Delete successfully");
+                MessageBox.Show("Xóa thành công");
 
                 // Go back previous page
                 if (NavigationService.CanGoBack)
@@ -75,7 +75,7 @@ namespace WpfMyShop.pages
             else
             {
                 // delete fail
-                MessageBox.Show("Delete failed");
+                MessageBox.Show("Xóa thất bại");
             }
         }
 

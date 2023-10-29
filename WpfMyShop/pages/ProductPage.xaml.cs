@@ -235,6 +235,20 @@ namespace WpfMyShop.pages
             NavigationService.Navigate(page);
         }
 
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new AddWindow(_books);
+            screen.Show();
+            screen.ScreenClosed += (sender, e) =>
+            {
+                if (!AddWindow.isAddFail) // add successfully
+                {
+                    int current = pagingComboBox.SelectedIndex;
+                    LoadAllBooks("");
+                    pagingComboBox.SelectedIndex = current;
+                }
+            };
+        }
     }
 
 

@@ -57,6 +57,16 @@ Content="Áp dụng"
 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
 Style="{StaticResource MaterialDesignRaisedLightButton}"
 ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+            <Button
+                Width="130"
+                Height="25"
+                Content="Thêm sách"
+                Margin="0,20,0,0"
+                Name="addBtn"
+                Click="addBtn_Click"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightButton" />
         </StackPanel>
         
         <!--Main screen-->
