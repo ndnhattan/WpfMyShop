@@ -34,6 +34,16 @@
                 </ComboBox.ItemTemplate>
 
             </ComboBox>
+            <TextBlock FontWeight="Bold" Text="Thể loại"/>
+            <ComboBox Background="White" Foreground="Black" Margin="10 10 10 10" Name="genreComboBox" SelectionChanged="genreComboBox_SelectionChanged" Width="120" Height="28" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate >
+                        <TextBlock  Text="{Binding Name}">
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+            </ComboBox>
             <TextBlock Text="Khoảng giá" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
                 <TextBox

@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.model;
+using WpfMyShop.models;
 
 namespace WpfMyShop.pages
 {
@@ -30,6 +31,7 @@ namespace WpfMyShop.pages
         }
 
         public BindingList<Book> _books;
+        public BindingList<Genre> _genres;
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -56,6 +58,41 @@ namespace WpfMyShop.pages
 
             filterComboBox.ItemsSource = filters;
             filterComboBox.SelectedIndex = 0;
+            loadGenres();
+        }
+
+        private void loadGenres()
+        {
+            var sql = """
+                select * from Genres
+                """;
+            var command = new SqlCommand(sql, DB.Instance.Connection);
+
+            int count = -1;
+            _genres = new BindingList<Genre>();
+            _genres.Add(new Genre() { Id = 0,Name="Tất cả",Description="" });
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int id = (int)reader["id"];
+                    string name = (string)reader["name"];
+                    string description = reader["description"] == DBNull.Value ? string.Empty : (string)reader["description"];
+
+                    var genre = new Genre()
+                    {
+                        Id = id,
+                        Name = name,
+                        Description = description,
+                    };
+
+                    _genres.Add(genre);
+                }
+
+                reader.Close();
+            }
+            genreComboBox.ItemsSource = _genres;
+            genreComboBox.SelectedIndex = 0;
         }
 
         int _totalPages = -1;
@@ -64,21 +101,19 @@ namespace WpfMyShop.pages
         int _startPrice = 0;
         int _endPrice = 0;
         string _filter = "";
+        int _genre = 0;
         private void LoadAllBooks(string type)
         {
-            var sql = _endPrice == 0 ? """
+            var sql = $"""
                 select *, count(*) over() as Total from Books
-                where (name like @Keyword) and (promo_price >= @Start)
+                where (name like @Keyword) and (promo_price >= @Start) 
+                      {(_endPrice != 0 ? "and (promo_price <= @End)" : "")}
+                      {(_genre != 0 ? "and (genre_id = @Genre)" : "")}
                 order by 
                 case WHEN @Filter = 'new' Then created_date ELSE null END DESC,
                 case WHEN @Filter = 'best seller' Then sold ELSE null END DESC,
                 CASE WHEN @Filter = 'price ASC' then promo_price ELSE null END ASC,
                 CASE WHEN @Filter = 'price DESC' then promo_price ELSE null END DESC
-                offset @Skip rows fetch next @Take rows only
-                """ : """
-                select *, count(*) over() as Total from Books
-                where (name like @Keyword) and (promo_price >= @Start) and (promo_price <= @End)
-                order by id
                 offset @Skip rows fetch next @Take rows only
                 """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
@@ -93,6 +128,7 @@ namespace WpfMyShop.pages
             command.Parameters.AddWithValue("@Start", _startPrice);
             if (_endPrice > 0) command.Parameters.AddWithValue("@End", _endPrice);
             command.Parameters.AddWithValue("@Filter", _filter);
+            if (_genre != 0) command.Parameters.AddWithValue("@Genre", _genre);
 
             int count = -1;
             _books = new BindingList<Book>();
@@ -248,6 +284,19 @@ namespace WpfMyShop.pages
                     pagingComboBox.SelectedIndex = current;
                 }
             };
+        }
+
+        private void genreComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dynamic info = genreComboBox.SelectedItem;
+            if (info != null)
+            {
+                if (info?.Id != _genre)
+                {
+                    _genre = info?.Id;
+                    LoadAllBooks("");
+                }
+            }
         }
     }
 

@@ -75,7 +75,7 @@ namespace WpfMyShop
             string password = txtPasswordBox.Password;
 
             var builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; // tên server demo
+            builder.DataSource = "DESKTOP-3A921M2"; // tên server demo
             builder.InitialCatalog = "my_shop"; // tên database demo
             builder.UserID = username;
             builder.Password = password;
