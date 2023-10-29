@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfMyShop
+namespace WpfMyShop.utils
 {
     public static class ReflectionExtension
     {
@@ -22,7 +22,7 @@ namespace WpfMyShop
                 var targetProp = targetType.GetProperty(sourceProp.Name);
                 if (targetProp == null) continue;
                 if (!targetProp.CanWrite) continue;
-                if ((targetProp.GetSetMethod(true) != null)
+                if (targetProp.GetSetMethod(true) != null
                     && targetProp.GetSetMethod(true)!.IsPrivate) continue;
                 if ((targetProp.GetSetMethod()!.Attributes
                     & System.Reflection.MethodAttributes.Static) != 0) continue;
