@@ -29,7 +29,7 @@ namespace WpfMyShop.pages
             InitializeComponent();
         }
 
-        BindingList<Book> _books;
+        public BindingList<Book> _books;
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -107,6 +107,10 @@ namespace WpfMyShop.pages
                     string image_url = (string)reader["image_url"];
                     int price = (int)reader["price"];
                     int promo_price = (int)reader["promo_price"];
+                    int sold = (int)reader["sold"];
+                    int stock = (int)reader["stock"];
+                    int cost = (int)reader["cost"];
+                    int genre_id = (int)reader["genre_id"];
 
                     var book = new Book()
                     {
@@ -117,6 +121,10 @@ namespace WpfMyShop.pages
                         Image = image_url,
                         Price = price,
                         PromoPrice = promo_price,
+                        Sold = sold,
+                        Cost = cost,
+                        Stock = stock,
+                        GenreId = genre_id
                     };
                     count = (int)reader["Total"];
 
@@ -218,6 +226,28 @@ namespace WpfMyShop.pages
             // Replace any non-numeric characters with an empty string
             e.Handled = regex.IsMatch(e.Text);
 
+        }
+
+        private void ListViewBook_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            int i = booksList.SelectedIndex;
+            DetailProductPage page = new DetailProductPage(i, _books);
+            NavigationService.Navigate(page);
+        }
+
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new AddWindow(_books);
+            screen.Show();
+            screen.ScreenClosed += (sender, e) =>
+            {
+                if (!AddWindow.isAddFail) // add successfully
+                {
+                    int current = pagingComboBox.SelectedIndex;
+                    LoadAllBooks("");
+                    pagingComboBox.SelectedIndex = current;
+                }
+            };
         }
     }
 
