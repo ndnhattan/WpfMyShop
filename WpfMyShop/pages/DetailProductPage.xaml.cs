@@ -96,5 +96,30 @@ namespace WpfMyShop.pages
                 _backup.CopyProperties(book);
             }
         }
+
+        private void onClickIncrease(object sender, RoutedEventArgs e)
+        {
+            int num = int.Parse(TextboxNumProduct.Text);
+            if (num < books[index].Stock)
+            {
+                num++;
+                TextboxNumProduct.Text = num.ToString();
+            }
+        }
+
+        private void onClickDecrease(object sender, RoutedEventArgs e)
+        {
+            int num = int.Parse(TextboxNumProduct.Text);
+            if ( num >= 2)
+            {
+                num--;
+                TextboxNumProduct.Text = num.ToString();
+            }
+        }
+
+        private void addCardBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

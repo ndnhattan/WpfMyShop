@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Azure;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -273,17 +274,15 @@ namespace WpfMyShop.pages
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            var screen = new AddWindow(_books);
-            screen.Show();
-            screen.ScreenClosed += (sender, e) =>
+            var page = new AddBookPage(_books);
+            NavigationService.Navigate(page);
+
+            if (!AddBookPage.isAddFail) // add successfully
             {
-                if (!AddWindow.isAddFail) // add successfully
-                {
-                    int current = pagingComboBox.SelectedIndex;
-                    LoadAllBooks("");
-                    pagingComboBox.SelectedIndex = current;
-                }
-            };
+                int current = pagingComboBox.SelectedIndex;
+                LoadAllBooks("");
+                pagingComboBox.SelectedIndex = current;
+            }
         }
 
         private void genreComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

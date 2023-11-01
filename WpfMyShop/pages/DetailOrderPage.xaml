@@ -1,0 +1,68 @@
+﻿<Page x:Class="WpfMyShop.pages.DetailOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfMyShop.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="DetailOrderPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <materialDesign:ColorZone
+            Grid.Row="0"
+            Padding="16"
+            Mode="PrimaryLight"
+            Background="#3AA9AD">
+            <TextBlock
+                Margin="16,0,0,0"
+                VerticalAlignment="Center"
+                Name="ProductNameTitle"
+                FontSize="25"
+                Text="Thông tin đơn hàng"/>
+
+        </materialDesign:ColorZone>
+        
+        <TextBlock x:Name="TextblockNameCustomer" 
+                   Text="Tên khách hàng: "
+                   Grid.Row="1"
+                   FontSize="25"
+                   Margin="10,10,10,10"/>
+
+        <TextBlock 
+            x:Name="TextblockDateOrder" 
+            Text="Ngày đặt hàng : "
+            Grid.Row="2"
+            FontSize="25"
+            Margin="10,10,10,10"/>
+
+        <ListView Grid.Row="3">
+            
+        </ListView>
+
+        <TextBlock 
+            Text="Tổng tiền : "
+            Grid.Row="4"
+            FontSize="25"
+            Margin="10,10,10,10"/>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="deleteBtn" Content="Xóa" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click"/>
+            <Button x:Name="EditBtn" Content="Sửa" Grid.Column="2" Width="150" Background="#3AA9AD" Click="EditBtn_Click"/>
+        </Grid>
+    </Grid>
+</Page>

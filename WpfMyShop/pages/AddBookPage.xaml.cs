@@ -2,32 +2,33 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.model;
 
-namespace WpfMyShop
+namespace WpfMyShop.pages
 {
     /// <summary>
-    /// Interaction logic for AddWindow.xaml
+    /// Interaction logic for AddBookPage.xaml
     /// </summary>
-    public partial class AddWindow : Window
+    public partial class AddBookPage : Page
     {
         BindingList<Book> books;
         public event EventHandler ScreenClosed;
         public static bool isAddFail = false;
 
-        public AddWindow(BindingList<Book> books)
+        public AddBookPage(BindingList<Book> books)
         {
             InitializeComponent();
             this.books = books;
@@ -63,8 +64,8 @@ namespace WpfMyShop
                 isAddFail = true;
             }
 
-            if (TextboxName.Text.Length<=0 || TextboxImage.Text.Length<=0 || TextboxAuthor.Text.Length<=0 || TextboxYear.Text.Length <=0 ||
-                TextboxPrice.Text.Length<=0 || TextboxPromoPrice.Text.Length<=0 || TextboxSold.Text.Length <= 0 || TextboxCost.Text.Length<=0 || TextboxStock.Text.Length <= 0)
+            if (TextboxName.Text.Length <= 0 || TextboxImage.Text.Length <= 0 || TextboxAuthor.Text.Length <= 0 || TextboxYear.Text.Length <= 0 ||
+                TextboxPrice.Text.Length <= 0 || TextboxPromoPrice.Text.Length <= 0 || TextboxSold.Text.Length <= 0 || TextboxCost.Text.Length <= 0 || TextboxStock.Text.Length <= 0)
             {
                 MessageBox.Show("Cần điển đầy đủ thông tin");
                 isAddFail = true;
@@ -114,18 +115,20 @@ namespace WpfMyShop
                 {
                     MessageBox.Show("Thêm thất bại");
                 }
-                this.Close();
+                if (NavigationService.CanGoBack)
+                {
+                    NavigationService.GoBack();
+                }
                 ScreenClosed?.Invoke(this, EventArgs.Empty);
-            }
-            else
-            {
-                this.Close();
             }
         }
 
         private void cancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }
