@@ -21,11 +21,11 @@ using WpfMyShop.model;
 namespace WpfMyShop
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StartupWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartupWindow : Window
     {
-        public MainWindow()
+        public StartupWindow()
         {
             InitializeComponent();
         }
@@ -75,8 +75,12 @@ namespace WpfMyShop
             string password = txtPasswordBox.Password;
 
             var builder = new SqlConnectionStringBuilder();
-            //builder.DataSource = "DESKTOP-3A921M2"; // tên server demo
-            builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
+            // server Tan
+            builder.DataSource = "DESKTOP-3A921M2";
+            // server Quang
+            //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; 
+            // server Thien
+
             builder.InitialCatalog = "my_shop"; // tên database demo
             builder.UserID = username;
             builder.Password = password;
