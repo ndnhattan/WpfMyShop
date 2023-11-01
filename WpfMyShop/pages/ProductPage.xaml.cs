@@ -161,7 +161,8 @@ namespace WpfMyShop.pages
                         Sold = sold,
                         Cost = cost,
                         Stock = stock,
-                        GenreId = genre_id
+                        GenreId = genre_id,
+                        IsPromo = price == promo_price ? false : true,
                     };
                     count = (int)reader["Total"];
 

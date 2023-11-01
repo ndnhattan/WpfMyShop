@@ -56,10 +56,10 @@
                             </Button>
                         </StackPanel>
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Name="orderBtn" Click="orderBtn_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Dashboard"/>
+                                    <TextBlock Text="Order"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -67,7 +67,7 @@
                             <Button Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Dashboard"/>
+                                    <TextBlock Text="Genre"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

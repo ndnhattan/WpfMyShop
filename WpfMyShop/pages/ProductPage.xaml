@@ -78,7 +78,7 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                 Style="{StaticResource MaterialDesignRaisedLightButton}"
                 ToolTip="Resource name: MaterialDesignRaisedLightButton" />
         </StackPanel>
-        
+
         <!--Main screen-->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -87,7 +87,7 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <StackPanel Margin="0 0 0 10" Background="White" Orientation="Horizontal" Width="300" HorizontalAlignment="Center">
-                
+
                 <TextBox
                     
                     Width="280"
@@ -105,7 +105,7 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        
+
                         <materialDesign:Card
   Width="220" Background="White" Height="360">
                             <Grid>
@@ -135,13 +135,34 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                                         Text="{Binding Name}" Foreground="Black" TextWrapping="Wrap"/>
 
-                                    <TextBlock
-        VerticalAlignment="Center"
-        Style="{StaticResource MaterialDesignBody1TextBlock}"
-        
-        TextWrapping="Wrap" >
-                                        <Run Text="{Binding Price, Converter={StaticResource priceConverter}}" Foreground="Gray" TextDecorations="Strikethrough"/>
-                                        <Run Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}" Foreground="OrangeRed"/>
+                                    <TextBlock FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap" >
+                                        <Run Text="{Binding Price, Converter={StaticResource priceConverter}}" Foreground="OrangeRed"/>
+
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsPromo}" Value="True">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <TextBlock FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap" >
+                                <Run Text="{Binding Price, Converter={StaticResource priceConverter}}" Foreground="Gray" TextDecorations="Strikethrough"/>
+                                <Run Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}" Foreground="OrangeRed"/>
+
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsPromo}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
                                     </TextBlock>
                                     <Viewbox
         Height="16"
@@ -156,7 +177,7 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                                 </StackPanel>
                             </Grid>
                         </materialDesign:Card>
-   
+
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.ItemsPanel>
@@ -183,7 +204,7 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                             </TextBlock>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
-                    
+
                 </ComboBox>
                 <Button
                     Width="90"
@@ -194,7 +215,7 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
   Style="{StaticResource MaterialDesignRaisedLightButton}"
   ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             </StackPanel>
-            
+
         </Grid>
         <!--Text box Search-->
 

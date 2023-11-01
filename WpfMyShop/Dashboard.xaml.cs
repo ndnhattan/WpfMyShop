@@ -57,5 +57,10 @@ namespace WpfMyShop
         {
             MainScreen.Content = new ProductPage();
         }
+
+        private void orderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new OrderPage();
+        }
     }
 }

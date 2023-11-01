@@ -17,6 +17,7 @@ namespace WpfMyShop.model
         public int Cost { get; set; }
         public int Price { get; set; }
         public int PromoPrice { get; set; }
+        public bool IsPromo { get; set; }
         public int Stock { get; set; }
         public int Sold { get; set; }
         public int GenreId { get; set; }
