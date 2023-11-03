@@ -6,17 +6,24 @@
       xmlns:local="clr-namespace:WpfMyShop.pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      Title="DetailOrderPage">
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:converters="clr-namespace:WpfMyShop.utils"
+      Title="DetailOrderPage" Loaded="Window_Loaded">
+
+    <Page.Resources>
+        <converters:DateConverter x:Key="dateConverter"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="65"/>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <materialDesign:ColorZone
@@ -32,37 +39,102 @@
                 Text="Thông tin đơn hàng"/>
 
         </materialDesign:ColorZone>
-        
-        <TextBlock x:Name="TextblockNameCustomer" 
-                   Text="Tên khách hàng: "
-                   Grid.Row="1"
-                   FontSize="25"
-                   Margin="10,10,10,10"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" FontSize="20" Margin="10,10,10,10">
+                <Run Text="Tên khách hàng: " FontWeight="Bold"/> <Run Text="{Binding CustomerName}"/>
+            </TextBlock>
+
+            <!--<Button
+                Grid.Column="1"
+                Name="btnSeeCustomer"
+                Click="btnSeeCustomer_Click"
+                Content="Xem thông tin khách hàng"
+                Background="#3AA9AD"/>-->
+        </Grid>
+
+        <TextBlock Grid.Row="2" FontSize="20" Margin="10,10,10,10">
+            <Run Text="Ngày đặt hàng : " FontWeight="Bold"/> <Run Text="{Binding Date, Converter={StaticResource dateConverter}}"/>
+        </TextBlock>
+
+        <TextBlock Grid.Row="3" FontSize="20" Margin="10,10,10,10">
+            <Run Text="Tổng giá mua : " FontWeight="Bold"/> <Run Text="{Binding Cost}"/>
+        </TextBlock>
 
         <TextBlock 
-            x:Name="TextblockDateOrder" 
-            Text="Ngày đặt hàng : "
-            Grid.Row="2"
-            FontSize="25"
-            Margin="10,10,10,10"/>
-
-        <ListView Grid.Row="3">
-            
-        </ListView>
-
-        <TextBlock 
-            Text="Tổng tiền : "
+            x:Name="TextblockListOrder" 
+            Text="Danh sách sản phẩm : "
             Grid.Row="4"
-            FontSize="25"
-            Margin="10,10,10,10"/>
+            FontSize="20"
+            Margin="10,10,10,10"
+            FontWeight="Bold"/>
 
         <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" MaxWidth="100"/>
+                <ColumnDefinition Width="*" MaxWidth="100"/>
+                <ColumnDefinition Width="*" MaxWidth="100"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Tên sách" Grid.Column="0" FontWeight="Bold" Margin="10,0,0,0"/>
+            <TextBlock Text="Số lượng" Grid.Column="1" FontWeight="Bold" Margin="20,0,0,0"/>
+            <TextBlock Text="Giá bán" Grid.Column="2" FontWeight="Bold" Margin="10,0,0,0"/>
+            <TextBlock Text="Giá mua" Grid.Column="3" FontWeight="Bold" Margin="10,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="6" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="ordersList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" SelectionChanged="ordersList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" MaxWidth="90"/>
+                                <ColumnDefinition Width="*" MaxWidth="95"/>
+                                <ColumnDefinition Width="*" MaxWidth="85"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Name}" Grid.Column="0" Foreground="Black"/>
+                            <TextBlock Text="{Binding Quantity}" Grid.Column="1" Foreground="Black"/>
+                            <TextBlock Text="{Binding Price}" Grid.Column="2" Foreground="Black"/>
+                            <TextBlock Text="{Binding Cost}" Grid.Column="3" Foreground="Black"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" MaxWidth="227"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="1">
+                <Run Text="Tổng: " FontWeight="Bold"/>
+                <Run Text="{Binding Price}"/>
+                <Run Text="             "/>
+                <Run Text="{Binding Cost}"/>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="8" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="deleteBtn" Content="Xóa" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click"/>
-            <Button x:Name="EditBtn" Content="Sửa" Grid.Column="2" Width="150" Background="#3AA9AD" Click="EditBtn_Click"/>
+            <Button x:Name="EditBtn" Content="Sửa" Grid.Column="1" Width="150" Background="#3AA9AD" Click="EditBtn_Click"/>
         </Grid>
     </Grid>
 </Page>
