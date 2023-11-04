@@ -80,8 +80,8 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             </Grid.RowDefinitions>
 
             <DockPanel LastChildFill="True" >
-                <DataGrid Name="orderGrid" HorizontalGridLinesBrush="Cyan" CanUserAddRows="False" 
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#eff2f7" Foreground="Black" AutoGenerateColumns="False">
+                <DataGrid Name="orderGrid" HorizontalGridLinesBrush="Cyan" CanUserAddRows="False"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#eff2f7" Foreground="Black" AutoGenerateColumns="False" MouseLeftButtonDown="DataGrid_MouseLeftButtonDown">
                     <DataGrid.Columns >
                         <DataGridTemplateColumn Header="Date" >
                             <DataGridTemplateColumn.CellTemplate >

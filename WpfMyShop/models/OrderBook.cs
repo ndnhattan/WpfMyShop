@@ -8,15 +8,16 @@ using WpfMyShop.model;
 
 namespace WpfMyShop.models
 {
-    public class Order : INotifyPropertyChanged, ICloneable
+    public class OrderBook : INotifyPropertyChanged, ICloneable
     {
-        public int Id { get; set; }
-        public DateTime Date { get; set; }
-        public int CustomerId { get; set; }
-        public int Cost { get; set; }
+        public int Id_Book { get; set; }
+        //public int Id_Order { get; set; }
+        //public BindingList<Book> ListBook { get; set; }
+        //public BindingList<int> ListBookQuantity { get; set; }
+        public String Name { get; set; }
+        public int Quantity { get; set; }
         public int Price { get; set; }
-        public string CustomerName { get; set; }
-        public BindingList<OrderBook> ListOrderBook { get; set; }
+        public int Cost { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

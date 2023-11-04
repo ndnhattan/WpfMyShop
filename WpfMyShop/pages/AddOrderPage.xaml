@@ -1,0 +1,96 @@
+﻿<Page x:Class="WpfMyShop.pages.AddOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WpfMyShop.pages" xmlns:converters="clr-namespace:WpfMyShop.utils"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddOrderPage">
+
+    <Page.Resources>
+        <converters:DateConverter x:Key="dateConverter"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone
+            Grid.Row="0"
+            Padding="16"
+            Mode="PrimaryLight"
+            Background="#3AA9AD">
+            <TextBlock
+                Margin="16,0,0,0"
+                VerticalAlignment="Center"
+                Name="ProductNameTitle"
+                FontSize="25"
+                Text="Thêm đơn hàng"/>
+        </materialDesign:ColorZone>
+ 
+        <TextBox Grid.Row="1" MinWidth="200" Margin="5,5,5,5" x:Name="textboxIDCustomer" FontSize="20"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền ID khách hàng" materialDesign:HintAssist.IsFloating="False"/>
+
+        <TextBox Grid.Row="2" MinWidth="200" Margin="5,5,5,5" x:Name="textboxDate" FontSize="20" Text="{Binding Date, Converter={StaticResource dateConverter}}"
+         Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền ngày tạo đơn hàng" materialDesign:HintAssist.IsFloating="False"/>
+
+        <Grid Grid.Row="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListView MinHeight="215" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="OrderBookList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" SelectionChanged="ordersList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" MaxWidth="90"/>
+                                <ColumnDefinition Width="*" MaxWidth="95"/>
+                                <ColumnDefinition Width="*" MaxWidth="85"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Id_Book}" Grid.Column="0" Foreground="Black"/>
+                            <TextBlock Text="{Binding Name}" Grid.Column="1" Foreground="Black"/>
+                            <TextBlock Text="{Binding Quantity}" Grid.Column="2" Foreground="Black"/>
+                            <TextBlock Text="{Binding Price}" Grid.Column="3" Foreground="Black"/>
+                            <TextBlock Text="{Binding Cost}" Grid.Column="4" Foreground="Black"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="LightBlue" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Row="4" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="confirmBtn" Content="Thêm" Grid.Column="0" Width="150" Background="#3AA9AD" Click="confirmBtn_Click"/>
+            <Button x:Name="addBookBtn" Content="Thêm sách" Grid.Column="1" Width="150" Background="Gray" Click="addBookBtn_Click"/>
+            <Button x:Name="deleteBookBtn" Content="Xóa sách" Grid.Column="2" Width="150" Background="Gray" Click="deleteBookBtn_Click"/>
+            <Button x:Name="cancelBtn" Content="Hủy" Grid.Column="3" Width="150" Background="#3AA9AD" Click="cancelBtn_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

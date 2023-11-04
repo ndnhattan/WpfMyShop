@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -108,15 +109,90 @@ namespace WpfMyShop.pages
                         Cost = cost,
                         CustomerId = customer_id,
                         Date = date,
-                        CustomerName = customer_name
+                        CustomerName = customer_name,
                     };
+
                     count = (int)reader["Total"];
 
                     _orders.Add(order);
                 }
-
                 reader.Close();
             }
+
+            for (int i = 0; i < _orders.Count; i++)
+            {
+                var sql1 = $@"SELECT * FROM Order_Books WHERE order_id = @orderID";
+                var command1 = new SqlCommand(sql1, DB.Instance.Connection);
+                command1.Parameters.Add("@orderID", SqlDbType.Int).Value = _orders[i].Id;
+                BindingList<int> listBookIndex = new BindingList<int> { };
+                BindingList<int> quantityList = new BindingList<int> { };
+                BindingList<OrderBook> orderBookList = new BindingList<OrderBook> { };
+                using (var reader1 = command1.ExecuteReader())
+                {
+                    while (reader1.Read())
+                    {
+                        int book_id = (int)reader1["book_id"];
+                        int quantity = (int)reader1["quantity"];
+                        quantityList.Add(quantity);
+                        listBookIndex.Add(book_id);
+                    }
+                }
+
+                BindingList<Book> books = new BindingList<Book>();
+                for (int j = 0; j < listBookIndex.Count; j++)
+                {
+                    var sql2 = $@"SELECT * FROM Books WHERE id = @ID";
+                    var command2 = new SqlCommand(sql2, DB.Instance.Connection);
+                    command2.Parameters.Add("@ID", SqlDbType.Int).Value = listBookIndex[j];
+                    using (var reader2 = command2.ExecuteReader())
+                    {
+                        while (reader2.Read())
+                        {
+                            int id = (int)reader2["id"];
+                            string name = (string)reader2["name"];
+                            string author = (string)reader2["author"];
+                            int year = (int)reader2["year"];
+                            string image_url = (string)reader2["image_url"];
+                            int price = (int)reader2["price"];
+                            int promo_price = (int)reader2["promo_price"];
+                            int sold = (int)reader2["sold"];
+                            int stock = (int)reader2["stock"];
+                            int cost = (int)reader2["cost"];
+                            int genre_id = (int)reader2["genre_id"];
+
+                            var book = new Book()
+                            {
+                                Id = id,
+                                Name = name,
+                                Author = author,
+                                Year = year,
+                                Image = image_url,
+                                Price = price,
+                                PromoPrice = promo_price,
+                                Sold = sold,
+                                Cost = cost,
+                                Stock = stock,
+                                GenreId = genre_id,
+                                IsPromo = price == promo_price ? false : true,
+                            };
+
+                            books.Add(book);
+
+                            OrderBook order = new OrderBook()
+                            {
+                                Price = price * quantityList[j],
+                                Cost = cost * quantityList[j],
+                                Name = name,
+                                Quantity = quantityList[j],
+                                Id_Book = id
+                            };
+                            orderBookList.Add(order);
+                        }
+                    }
+                }
+                _orders[i].ListOrderBook = orderBookList;
+            }
+
             orderGrid.ItemsSource = _orders;
 
             if (type != "changePage")
@@ -208,17 +284,26 @@ namespace WpfMyShop.pages
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            //var page = new AddBookPage(_books);
-            //NavigationService.Navigate(page);
+            var page = new AddOrderPage(_orders);
+            NavigationService.Navigate(page);
 
-            //if (!AddBookPage.isAddFail) // add successfully
-            //{
-            //    int current = pagingComboBox.SelectedIndex;
-            //    LoadAllBooks("");
-            //    pagingComboBox.SelectedIndex = current;
-            //}
+            if (!AddOrderPage.isAddFail) // add successfully
+            {
+                int current = pagingComboBox.SelectedIndex;
+                LoadAllBooks("");
+                pagingComboBox.SelectedIndex = current;
+            }
         }
 
-       
+        private void DataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 1) // Kiểm tra đây là lần nhấn đơn
+            {
+                // Lấy item được chọn
+                int i = orderGrid.SelectedIndex;
+                DetailOrderPage page = new DetailOrderPage(_orders, i);
+                NavigationService.Navigate(page);
+            }
+        }
     }
 }
