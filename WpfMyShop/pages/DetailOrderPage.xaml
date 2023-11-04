@@ -21,9 +21,9 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <materialDesign:ColorZone
@@ -93,15 +93,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="ordersList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" SelectionChanged="ordersList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
+            <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" MinHeight="150" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="ordersList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" SelectionChanged="ordersList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*" MaxWidth="90"/>
-                                <ColumnDefinition Width="*" MaxWidth="95"/>
-                                <ColumnDefinition Width="*" MaxWidth="85"/>
+                                <ColumnDefinition Width="*" MaxWidth="100"/>
+                                <ColumnDefinition Width="*" MaxWidth="65"/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="{Binding Name}" Grid.Column="0" Foreground="Black"/>
@@ -111,10 +111,20 @@
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="LightBlue" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
 
-        <Grid Grid.Row="7">
+        <Grid Grid.Row="7" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*" MaxWidth="227"/>

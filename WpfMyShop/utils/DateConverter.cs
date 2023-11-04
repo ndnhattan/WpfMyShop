@@ -25,7 +25,14 @@ namespace WpfMyShop.utils
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value is string dateString)
+            {
+                if (DateTime.TryParseExact(dateString, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+                {
+                    return result; // Chuyển đổi chuỗi thành DateTime
+                }
+            }
+            return DependencyProperty.UnsetValue; // Trả về DependencyProperty.UnsetValue nếu chuỗi không hợp lệ.
         }
     }
 }

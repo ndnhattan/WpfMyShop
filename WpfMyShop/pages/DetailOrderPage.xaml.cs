@@ -19,6 +19,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.model;
 using WpfMyShop.models;
+using WpfMyShop.utils;
+using WpfMyShop.windows;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace WpfMyShop.pages
@@ -28,6 +30,7 @@ namespace WpfMyShop.pages
     /// </summary>
     public partial class DetailOrderPage : Page
     {
+        
         public BindingList<Order> _orders;
         int index;
         public DetailOrderPage(BindingList<Order> _orders, int index)
@@ -35,6 +38,7 @@ namespace WpfMyShop.pages
             InitializeComponent();
             this._orders = _orders;
             this.index = index;
+
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -70,9 +74,35 @@ namespace WpfMyShop.pages
             }
         }
 
+        Order _backup;
+        BindingList<OrderBook> clonedList;
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
+            clonedList = new BindingList<OrderBook>();
+            var order = _orders[index];
+            _backup = (Order)order.Clone();
 
+            for (int i = 0; i < order.ListOrderBook.Count; i++)
+            {
+                OrderBook item = order.ListOrderBook[i];
+                // Clone the item (you can use your own cloning method)
+                OrderBook clonedItem = (OrderBook)item.Clone();
+
+                // Add the cloned item to the new BindingList
+                clonedList.Add(clonedItem);
+            }
+
+            var screen = new EditOrderWindow(order, _orders);
+
+            if (screen.ShowDialog()!.Value == true)
+            {
+                screen.EditedOrder.CopyProperties(order);
+            }
+            else
+            {
+                _backup.CopyProperties(order);
+                order.ListOrderBook = clonedList;
+            }
         }
 
         private void ordersList_SelectionChanged(object sender, SelectionChangedEventArgs e)

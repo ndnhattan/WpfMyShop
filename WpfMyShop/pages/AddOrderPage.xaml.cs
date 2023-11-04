@@ -82,8 +82,16 @@ namespace WpfMyShop.pages
             command.Parameters.Add("@Cost", System.Data.SqlDbType.Int).Value = order.Cost;
             command.Parameters.Add("@Price", System.Data.SqlDbType.Int).Value = order.Price;
             command.Parameters.Add("@Date", System.Data.SqlDbType.DateTime).Value = order.Date;
+            int id = 0;
+            try
+            {
+                id = (int)((decimal)command.ExecuteScalar());
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Dữ liệu ngày quá xa hiện tại");
+                return;
+            }
 
-            int id = (int)((decimal)command.ExecuteScalar());
             if (id > 0)
             {
                 order.Id = id;
@@ -163,8 +171,10 @@ namespace WpfMyShop.pages
 
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void deleteBookBtn_Click(object sender, RoutedEventArgs e)
         {
+            var OrderBook = OrderBookList.SelectedItem;
+            ListOrderBook.Remove((OrderBook)OrderBook);
         }
     }
 }

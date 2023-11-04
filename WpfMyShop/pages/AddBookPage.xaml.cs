@@ -92,19 +92,23 @@ namespace WpfMyShop.pages
                 values(@Name, @Author, @Year, @Image, @Cost, @Price, @Stock, @Genre_id, @PromoPrice, @Sold);
                 select ident_current('Books');
              """;
-                var command = new SqlCommand(sql, DB.Instance.Connection);
-                command.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = book.Name;
-                command.Parameters.Add("@Author", System.Data.SqlDbType.NVarChar).Value = book.Author;
-                command.Parameters.Add("@Year", System.Data.SqlDbType.Int).Value = book.Year;
-                command.Parameters.Add("@Image", System.Data.SqlDbType.NVarChar).Value = book.Image;
-                command.Parameters.Add("@Cost", System.Data.SqlDbType.Int).Value = book.Cost;
-                command.Parameters.Add("@Price", System.Data.SqlDbType.Int).Value = book.Price;
-                command.Parameters.Add("@Stock", System.Data.SqlDbType.Int).Value = book.Stock;
-                command.Parameters.Add("@Genre_id", System.Data.SqlDbType.Int).Value = book.GenreId;
-                command.Parameters.Add("@PromoPrice", System.Data.SqlDbType.Int).Value = book.PromoPrice;
-                command.Parameters.Add("@Sold", System.Data.SqlDbType.Int).Value = book.Sold;
+                try
+                {
+                    var command = new SqlCommand(sql, DB.Instance.Connection);
+                    command.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = book.Name;
+                    command.Parameters.Add("@Author", System.Data.SqlDbType.NVarChar).Value = book.Author;
+                    command.Parameters.Add("@Year", System.Data.SqlDbType.Int).Value = book.Year;
+                    command.Parameters.Add("@Image", System.Data.SqlDbType.NVarChar).Value = book.Image;
+                    command.Parameters.Add("@Cost", System.Data.SqlDbType.Int).Value = book.Cost;
+                    command.Parameters.Add("@Price", System.Data.SqlDbType.Int).Value = book.Price;
+                    command.Parameters.Add("@Stock", System.Data.SqlDbType.Int).Value = book.Stock;
+                    command.Parameters.Add("@Genre_id", System.Data.SqlDbType.Int).Value = book.GenreId;
+                    command.Parameters.Add("@PromoPrice", System.Data.SqlDbType.Int).Value = book.PromoPrice;
+                    command.Parameters.Add("@Sold", System.Data.SqlDbType.Int).Value = book.Sold;
 
-                id = (int)((decimal)command.ExecuteScalar());
+                    id = (int)((decimal)command.ExecuteScalar());
+                } catch (Exception ex) { }
+
                 if (id > 0)
                 {
                     book.Id = id;
