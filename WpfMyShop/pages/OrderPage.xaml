@@ -80,16 +80,11 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             </Grid.RowDefinitions>
 
             <DockPanel LastChildFill="True" >
-                <DataGrid Name="orderGrid" HorizontalGridLinesBrush="Cyan" CanUserAddRows="False"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#eff2f7" Foreground="Black" AutoGenerateColumns="False" MouseLeftButtonDown="DataGrid_MouseLeftButtonDown">
+                <DataGrid Name="orderGrid" HorizontalGridLinesBrush="Cyan" CanUserAddRows="False" IsReadOnly="True"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#eff2f7" Foreground="Black" AutoGenerateColumns="False" MouseLeftButtonDown="DataGrid_MouseLeftButtonDown" SelectionChanged="orderGrid_SelectionChanged">
                     <DataGrid.Columns >
-                        <DataGridTemplateColumn Header="Date" >
-                            <DataGridTemplateColumn.CellTemplate >
-                                <DataTemplate>
-                                    <DatePicker Foreground="Black" SelectedDate="{Binding Date}" BorderThickness="0" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="#" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
                         <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
                         <DataGridTextColumn Header="Cost" Binding="{Binding Cost}"/>
                         <DataGridTextColumn Header="Customer" Binding="{Binding CustomerName}"/>
@@ -101,28 +96,8 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                         </Style>
 
                     </DataGrid.Resources>
-                    <DataGrid.CellStyle>
-                        <Style TargetType="DataGridCell">
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected"
-                        Value="True">
-                                    <Setter Property="Background"
-                        Value="White" />
-                                    <Setter Property="Foreground"
-                        Value="Black" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.CellStyle>
-                    <DataGrid.RowStyle>
-                        <Style TargetType="DataGridRow">
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected"
-                        Value="True">
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.RowStyle>
+                    
+                    
                 </DataGrid>
                     
             </DockPanel>

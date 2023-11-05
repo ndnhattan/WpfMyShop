@@ -297,13 +297,16 @@ namespace WpfMyShop.pages
 
         private void DataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ClickCount == 1) // Kiểm tra đây là lần nhấn đơn
-            {
-                // Lấy item được chọn
+            
                 int i = orderGrid.SelectedIndex;
                 DetailOrderPage page = new DetailOrderPage(_orders, i);
                 NavigationService.Navigate(page);
-            }
+            
+        }
+
+        private void orderGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
