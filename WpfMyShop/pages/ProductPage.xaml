@@ -107,28 +107,28 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                     <DataTemplate>
                         
                         <materialDesign:Card
-  Width="220" Background="White" Height="360">
+                            Width="220" Background="White" Height="360">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition
-        Height="240" />
+                                        Height="240" />
                                     <RowDefinition
-        Height="Auto" />
+                                        Height="Auto" />
                                     <RowDefinition
-        Height="*" />
+                                        Height="*" />
                                 </Grid.RowDefinitions>
                                 <Image
-      Height="240"
-      Source="{Binding Image, 
+                                    Height="240"
+                                     Source="{Binding Image, 
                             Converter={StaticResource pathConverter}}"
-      Stretch="Uniform" />
+                                     Stretch="Uniform" />
                                 <Separator
-      Grid.Row="1"
-      Margin="8,0,8,0"
-      Style="{StaticResource MaterialDesignDarkSeparator}" />
+                                  Grid.Row="1"
+                                  Margin="8,0,8,0"
+                                     Style="{StaticResource MaterialDesignDarkSeparator}" />
                                 <StackPanel
-      Grid.Row="2"
-      Margin="8,4,8,4">
+                                      Grid.Row="2"
+                                      Margin="8,4,8,4">     
                                     <TextBlock
                                         Height="45"
                                         Margin="0"
@@ -136,22 +136,22 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                                         Text="{Binding Name}" Foreground="Black" TextWrapping="Wrap"/>
 
                                     <TextBlock
-        VerticalAlignment="Center"
-        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                         VerticalAlignment="Center"
+                                         Style="{StaticResource MaterialDesignBody1TextBlock}"
         
-        TextWrapping="Wrap" >
+                                         TextWrapping="Wrap" >
                                         <Run Text="{Binding Price, Converter={StaticResource priceConverter}}" Foreground="Gray" TextDecorations="Strikethrough"/>
                                         <Run Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}" Foreground="OrangeRed"/>
                                     </TextBlock>
                                     <Viewbox
-        Height="16"
-        Margin="0,4,0,8"
-        HorizontalAlignment="Left">
+                                        Height="16"
+                                        Margin="0,4,0,8"
+                                          HorizontalAlignment="Left"> 
                                         <materialDesign:RatingBar
-          Margin="0"
-          Foreground="Gold"
-          Orientation="Horizontal"
-          Value="3" />
+                                          Margin="0"
+                                          Foreground="Gold"
+                                          Orientation="Horizontal"
+                                             Value="3" />
                                     </Viewbox>
                                 </StackPanel>
                             </Grid>
@@ -169,12 +169,12 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
 
             <StackPanel Margin="0 10 0 10"  HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
                 <Button
-  Content="Previous"
+                     Content="Previous"
                     Name="previousBtn"
                     Click="previousBtn_Click"
-  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignRaisedLightButton}"
-  ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                      Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                 <ComboBox Background="White" Foreground="Black" Margin="10 0 10 0" Name="pagingComboBox" SelectionChanged="pagingComboBox_SelectionChanged" Width="200" Height="32" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate >
@@ -187,12 +187,12 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                 </ComboBox>
                 <Button
                     Width="90"
-  Content="Next"
+                     Content="Next"
                     Name="nextBtn"
                     Click="nextBtn_Click"
-  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignRaisedLightButton}"
-  ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                      Style="{StaticResource MaterialDesignRaisedLightButton}"
+                     ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             </StackPanel>
             
         </Grid>

@@ -1,7 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -17,6 +19,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.model;
+using WpfMyShop.models;
+using WpfMyShop.pages;
+using WpfMyShop.windows;
 
 namespace WpfMyShop
 {
@@ -28,6 +33,7 @@ namespace WpfMyShop
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void textEmail_MouseDown(object sender, MouseButtonEventArgs e)
@@ -75,16 +81,40 @@ namespace WpfMyShop
             string password = txtPasswordBox.Password;
 
             var builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "DESKTOP-3A921M2"; // tên server demo
-            builder.InitialCatalog = "my_shop"; // tên database demo
+            //builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+            //builder.InitialCatalog = "my_shop";
+
+
+            var nameServer = ConfigurationManager.AppSettings["NameServer"];
+            if (nameServer.Equals(null))
+            {
+
+                builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+            }
+            else
+            {
+                builder.DataSource = nameServer;
+            }
+
+            var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];
+            if (nameDatabase.Equals("null"))
+            {
+                builder.InitialCatalog = "my_shop"; // tên database demo
+            }
+            else
+            {
+                builder.InitialCatalog = nameDatabase;
+            }
+
             builder.UserID = username;
             builder.Password = password;
             builder.TrustServerCertificate = true;
-
+ 
             string connectionString = builder.ConnectionString;
             var connection = new SqlConnection(connectionString);
 
-            connection = await Task.Run(() => {
+            connection = await Task.Run(() =>
+            {
                 var _connection = new SqlConnection(connectionString);
 
                 try
@@ -143,8 +173,7 @@ namespace WpfMyShop
             else
             {
                 // Cannot connect to db
-                MessageBox.Show(                    $"Cannot connect"
-                );
+                //MessageBox.Show($"Cannot connect");
             }
         }
 
@@ -182,6 +211,17 @@ namespace WpfMyShop
             var bitmapImgPassword = new BitmapImage(new Uri(t_imgPassword, UriKind.Absolute));
             imgPassword.Source = bitmapImgPassword;
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Setting(object sender, RoutedEventArgs e)
+        {
+            var screen = new SettingServer();
+            screen.Show();
         }
     }
 }

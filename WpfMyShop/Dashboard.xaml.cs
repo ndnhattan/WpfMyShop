@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Data.SqlClient;
+using WpfMyShop.model;
 using WpfMyShop.pages;
 
 namespace WpfMyShop
@@ -23,6 +25,7 @@ namespace WpfMyShop
         public Dashboard()
         {
             InitializeComponent();
+            MainScreen.Content = new DashBoardPage();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -56,6 +59,17 @@ namespace WpfMyShop
         private void ProductBtn_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new ProductPage();
+        }
+        
+
+        private void btn_Genre_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new GenrePage();
+        }
+
+        private void btn_Dashboard_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new DashBoardPage();
         }
     }
 }

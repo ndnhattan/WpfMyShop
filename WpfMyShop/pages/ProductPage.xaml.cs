@@ -163,7 +163,7 @@ namespace WpfMyShop.pages
                         GenreId = genre_id
                     };
                     count = (int)reader["Total"];
-
+                    
                     _books.Add(book);
                 }
 

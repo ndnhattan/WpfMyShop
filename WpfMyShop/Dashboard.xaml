@@ -4,6 +4,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfMyShop"
         mc:Ignorable="d"
         Title="Dashboard" Height="720" Width="1080" WindowStartupLocation="CenterScreen" Background="Transparent">
@@ -40,7 +41,7 @@
                         <Separator Margin='25' DockPanel.Dock="Top" Height="0.8" Background="AliceBlue"/>
 
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" x:Name="btn_Dashboard" Click="btn_Dashboard_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Dashboard"/>
@@ -56,10 +57,10 @@
                             </Button>
                         </StackPanel>
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" x:Name="btn_Genre" Click="btn_Genre_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Dashboard"/>
+                                    <TextBlock Text="Genre Page"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -95,14 +96,10 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid Width="300" HorizontalAlignment="Left">
-                    <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6"
-               IsHitTestVisible="False" Panel.ZIndex="1" Text="Search here...." Visibility="Visible"/>
-                    <TextBox x:Name="txtSearch" Style="{StaticResource textBoxSearch}"/>
-                    <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center" Margin="0 0 15 0"
-                           Foreground="#b0b9c6" HorizontalAlignment="Right"/>
-                </Grid>
+
                 <Frame Grid.Row="1" x:Name="MainScreen"></Frame>
+                
+                
             </Grid>
             <!--Text box Search-->
             

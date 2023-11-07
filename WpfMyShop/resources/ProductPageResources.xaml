@@ -8,7 +8,7 @@
 	</Style>
 
 
-	<Style x:Key="pagingComboBox"
+	<Style x:Key="pagingComboBox"	
        TargetType="{x:Type ComboBox}">
 		<Setter Property="Foreground" Value="Black"/>
 		<Setter Property="Background" Value="White"/>
