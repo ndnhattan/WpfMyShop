@@ -87,15 +87,28 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <CheckBox Name ="RememberMe" Content="Remember me" FontWeight="Bold" Foreground="#FF2B5275"/>
-                    <TextBlock Text="Forget Password?" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Foreground="#FF8EA2B4" Cursor="Hand"/>
+                    <Button Content="Settings" Grid.Column="2" HorizontalAlignment="Right" FontWeight="Bold" Cursor="Hand"  VerticalAlignment="Top" Click="Button_Click_Setting">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <TextBlock TextDecorations="Underline">
+                 <ContentPresenter />
+                                </TextBlock>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="Black" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Foreground" Value="Red" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </Grid>
                 <Button Content="Log in" Click="logInButton_Click" Style="{StaticResource logInButton}"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="50 15 0 0" >
-
-                    <TextBlock Text="New User?" Margin="0 0 8 0" Style="{StaticResource textNormal}"/>
-                    <TextBlock Text="Sign up" FontSize="15" Foreground="#FF1A9E9E" Cursor="Hand"/>
-                    <TextBlock Text="Setting" FontSize="15" Margin="200 0 0 0" Cursor="Hand"/>
-                </StackPanel>
+                
             </StackPanel>
 
         </Border>

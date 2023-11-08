@@ -23,6 +23,7 @@ namespace WpfMyShop
         public Dashboard()
         {
             InitializeComponent();
+            MainScreen.Content = new DashboardPage();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -61,6 +62,16 @@ namespace WpfMyShop
         private void orderBtn_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new OrderPage();
+        }
+
+        private void genreBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new GenrePage();
+        }
+
+        private void btnDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new DashboardPage();
         }
     }
 }

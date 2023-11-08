@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.model;
+using WpfMyShop.windows;
 
 namespace WpfMyShop
 {
@@ -75,13 +76,26 @@ namespace WpfMyShop
             string password = txtPasswordBox.Password;
 
             var builder = new SqlConnectionStringBuilder();
-            // server Tan
-            builder.DataSource = "DESKTOP-3A921M2";
-            // server Quang
-            //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; 
-            // server Thien
+            var nameServer = ConfigurationManager.AppSettings["NameServer"];
+            if (nameServer.Equals("") || nameServer.Equals(null))
+            {
 
-            builder.InitialCatalog = "my_shop"; // tên database demo
+                builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+            }
+            else
+            {
+                builder.DataSource = nameServer;
+            }
+
+            var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];
+            if (nameDatabase.Equals("") || nameDatabase.Equals(null))
+            {
+                builder.InitialCatalog = "my_shop"; // tên database demo
+            }
+            else
+            {
+                builder.InitialCatalog = nameDatabase;
+            }
             builder.UserID = username;
             builder.Password = password;
             builder.TrustServerCertificate = true;
@@ -148,8 +162,7 @@ namespace WpfMyShop
             else
             {
                 // Cannot connect to db
-                MessageBox.Show(                    $"Cannot connect"
-                );
+                //MessageBox.Show($"Cannot connect" );
             }
         }
 
@@ -187,6 +200,12 @@ namespace WpfMyShop
             var bitmapImgPassword = new BitmapImage(new Uri(t_imgPassword, UriKind.Absolute));
             imgPassword.Source = bitmapImgPassword;
 
+        }
+
+        private void Button_Click_Setting(object sender, RoutedEventArgs e)
+        {
+            var screen = new SettingServerWindow();
+            screen.Show();
         }
     }
 }
