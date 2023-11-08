@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Azure;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,7 @@ namespace WpfMyShop.pages
     /// </summary>
     public partial class OrderPage : Page
     {
+        public event System.ComponentModel.CancelEventHandler? Closing;
         int _rowsPerPage;
         public OrderPage()
         {
@@ -39,6 +41,7 @@ namespace WpfMyShop.pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 _rowsPerPage = int.Parse(ConfigurationManager.AppSettings["ItemsPerPage"].ToString());
@@ -227,6 +230,29 @@ namespace WpfMyShop.pages
 
                 pagingComboBox.ItemsSource = pageInfos;
                 pagingComboBox.SelectedIndex = 0;
+
+                if (!Dashboard.isLoaded)
+                {
+                    if (Dashboard.page.Equals("DetailOrderPage"))
+                    {
+                        DetailOrderPage page = new DetailOrderPage(_orders, Dashboard.selectedIndex);
+                        NavigationService.Navigate(page);
+                        Dashboard.isLoaded = true;
+                    }
+                    else if (Dashboard.page.Equals("AddOrderPage"))
+                    {
+                        var page = new AddOrderPage(_orders);
+                        NavigationService.Navigate(page);
+                        Dashboard.isLoaded = true;
+
+                        if (!AddOrderPage.isAddFail) // add successfully
+                        {
+                            int current = pagingComboBox.SelectedIndex;
+                            LoadAllBooks("");
+                            pagingComboBox.SelectedIndex = current;
+                        }
+                    }
+                }
             }
         }
 
@@ -309,11 +335,13 @@ namespace WpfMyShop.pages
 
         private void DataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
-                int i = orderGrid.SelectedIndex;
-                DetailOrderPage page = new DetailOrderPage(_orders, i);
-                NavigationService.Navigate(page);
-            
+             int i = orderGrid.SelectedIndex;
+             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+             config.AppSettings.Settings["SelectedIndex"].Value = i.ToString();
+             config.Save(ConfigurationSaveMode.Minimal);
+             ConfigurationManager.RefreshSection("SelectedIndex");
+             DetailOrderPage page = new DetailOrderPage(_orders, i);
+             NavigationService.Navigate(page);
         }
 
         private void orderGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

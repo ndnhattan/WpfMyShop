@@ -168,6 +168,7 @@ namespace WpfMyShop.pages
         {
             DataContext = EditedOrder;
             textboxIDCustomer.Focus();
+            
         }
     }
 }

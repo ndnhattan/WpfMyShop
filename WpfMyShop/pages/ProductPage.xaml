@@ -11,7 +11,8 @@
       Background="#eff2f7"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductPage"
-      Loaded="Page_Loaded">
+      Loaded="Page_Loaded"
+      >
 
     <Page.Resources>
         <converters:PathConverter x:Key="pathConverter"/>
