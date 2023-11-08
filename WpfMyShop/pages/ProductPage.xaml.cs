@@ -158,8 +158,8 @@ namespace WpfMyShop.pages
                     int sold = (int)reader["sold"];
                     int stock = (int)reader["stock"];
                     int cost = (int)reader["cost"];
-                    int genre_id = (int)reader["genre_id"];
-
+                    //int genre_id = (int)reader["genre_id"];
+                    int genre_id = reader["genre_id"] == DBNull.Value ? 0 : (int)reader["genre_id"];
                     var book = new Book()
                     {
                         Id = id,

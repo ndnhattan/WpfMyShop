@@ -41,7 +41,7 @@
                         <Separator Margin='25' DockPanel.Dock="Top" Height="0.8" Background="AliceBlue"/>
 
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" x:Name="btnDashboard" Click="btnDashboard_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Dashboard"/>
@@ -65,7 +65,7 @@
                             </Button>
                         </StackPanel>
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Name="genreBtn" Click="genreBtn_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Genre"/>
@@ -96,15 +96,10 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid Width="300" HorizontalAlignment="Left">
-                    <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6"
-               IsHitTestVisible="False" Panel.ZIndex="1" Text="Search here...." Visibility="Visible"/>
-                    <TextBox x:Name="txtSearch" Style="{StaticResource textBoxSearch}"/>
-                    <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center" Margin="0 0 15 0"
-                           Foreground="#b0b9c6" HorizontalAlignment="Right"/>
-                </Grid>
+
                 <Frame Grid.Row="1" x:Name="MainScreen"></Frame>
             </Grid>
+
             <!--Text box Search-->
             
             
