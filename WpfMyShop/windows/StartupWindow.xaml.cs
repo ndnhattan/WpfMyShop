@@ -76,9 +76,9 @@ namespace WpfMyShop
 
             var builder = new SqlConnectionStringBuilder();
             // server Tan
-            builder.DataSource = "DESKTOP-3A921M2";
+            //builder.DataSource = "DESKTOP-3A921M2";
             // server Quang
-            //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; 
+            builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; 
             // server Thien
 
             builder.InitialCatalog = "my_shop"; // tên database demo

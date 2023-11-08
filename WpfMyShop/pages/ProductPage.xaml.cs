@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace WpfMyShop.pages
     /// </summary>
     public partial class ProductPage : Page
     {
+        int _rowsPerPage;
         public ProductPage()
         {
             InitializeComponent();
@@ -36,6 +38,15 @@ namespace WpfMyShop.pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                _rowsPerPage = int.Parse(ConfigurationManager.AppSettings["ItemsPerPage"].ToString());
+            }
+            catch (Exception ex)
+            {
+                _rowsPerPage = 10;
+            }
+
             LoadAllBooks("");
             var filters = new List<object>()
             {
@@ -119,7 +130,7 @@ namespace WpfMyShop.pages
                 """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
 
-            int _rowsPerPage = 10;
+            //int _rowsPerPage = 10;
             command.Parameters.Add("@Skip", SqlDbType.Int)
                 .Value = (_currentPage - 1) * _rowsPerPage;
             command.Parameters.Add("@Take", SqlDbType.Int)

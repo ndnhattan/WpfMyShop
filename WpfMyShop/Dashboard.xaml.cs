@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.pages;
 
@@ -61,6 +62,16 @@ namespace WpfMyShop
         private void orderBtn_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new OrderPage();
+        }
+
+        private void settingBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new SettingPage();
+        }
+
+        private void Close_Window(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBox.Show(MainScreen.CurrentSource.ToString());
         }
     }
 }
