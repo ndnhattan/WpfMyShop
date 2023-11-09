@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
@@ -112,7 +113,6 @@ namespace WpfMyShop.pages
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
             if (index <= _orders.Count && index >= 0)
             {
                 DataContext = _orders[index];

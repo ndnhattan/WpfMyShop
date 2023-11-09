@@ -3,8 +3,10 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +28,7 @@ namespace WpfMyShop.pages
     /// </summary>
     public partial class ProductPage : Page
     {
+        int _rowsPerPage;
         public ProductPage()
         {
             InitializeComponent();
@@ -36,6 +39,15 @@ namespace WpfMyShop.pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                _rowsPerPage = int.Parse(ConfigurationManager.AppSettings["ItemsPerPage"].ToString());
+            }
+            catch (Exception ex)
+            {
+                _rowsPerPage = 10;
+            }
+
             LoadAllBooks("");
             var filters = new List<object>()
             {
@@ -60,6 +72,29 @@ namespace WpfMyShop.pages
             filterComboBox.ItemsSource = filters;
             filterComboBox.SelectedIndex = 0;
             loadGenres();
+
+            if (!Dashboard.isLoaded)
+            {
+                if (Dashboard.page.Equals("AddBookPage"))
+                {
+                    var page = new AddBookPage(_books);
+                    NavigationService.Navigate(page);
+                    Dashboard.isLoaded = true;
+
+                    if (!AddBookPage.isAddFail) // add successfully
+                    {
+                        int current = pagingComboBox.SelectedIndex;
+                        LoadAllBooks("");
+                        pagingComboBox.SelectedIndex = current;
+                    }
+                }
+                else if (Dashboard.page.Equals("DetailProductPage"))
+                {
+                    DetailProductPage page = new DetailProductPage(Dashboard.selectedIndex, _books);
+                    NavigationService.Navigate(page);
+                    Dashboard.isLoaded = true;
+                }
+            }
         }
 
         private void loadGenres()
@@ -119,7 +154,7 @@ namespace WpfMyShop.pages
                 """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
 
-            int _rowsPerPage = 10;
+            //int _rowsPerPage = 10;
             command.Parameters.Add("@Skip", SqlDbType.Int)
                 .Value = (_currentPage - 1) * _rowsPerPage;
             command.Parameters.Add("@Take", SqlDbType.Int)
@@ -194,8 +229,9 @@ namespace WpfMyShop.pages
                 pagingComboBox.ItemsSource = pageInfos;
                 pagingComboBox.SelectedIndex = 0;
             }
-            
+
             //Title = $"Displaying {_books.Count} / {_totalItems}";
+            
         }
 
         private void pagingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -269,6 +305,10 @@ namespace WpfMyShop.pages
         private void ListViewBook_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             int i = booksList.SelectedIndex;
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["SelectedIndex"].Value = i.ToString();
+            config.Save(ConfigurationSaveMode.Minimal);
+            ConfigurationManager.RefreshSection("SelectedIndex");
             DetailProductPage page = new DetailProductPage(i, _books);
             NavigationService.Navigate(page);
         }
@@ -298,6 +338,8 @@ namespace WpfMyShop.pages
                 }
             }
         }
+
+        
     }
 
 

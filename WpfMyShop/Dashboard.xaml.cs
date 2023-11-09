@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.pages;
 
@@ -20,6 +22,9 @@ namespace WpfMyShop
     /// </summary>
     public partial class Dashboard : Window
     {
+        public static string page = "";
+        public static int selectedIndex = -1;
+        public static bool isLoaded = false;
         public Dashboard()
         {
             InitializeComponent();
@@ -64,6 +69,18 @@ namespace WpfMyShop
             MainScreen.Content = new OrderPage();
         }
 
+        private void settingBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new SettingPage();
+        }
+
+        private void Close_Window(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["Location"].Value = MainScreen.Content.ToString();
+            config.Save(ConfigurationSaveMode.Minimal);
+            ConfigurationManager.RefreshSection("Location");
+        }
         private void genreBtn_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new GenrePage();
@@ -72,6 +89,44 @@ namespace WpfMyShop
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new DashboardPage();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            String location = ConfigurationManager.AppSettings["Location"];
+            try
+            {
+                selectedIndex = int.Parse(ConfigurationManager.AppSettings["SelectedIndex"]);
+            } catch(Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+
+            if (location!=null && location.Length>0)
+            {
+                int lastDotIndex = location.LastIndexOf(".");
+                if (lastDotIndex != -1)
+                {
+                    page = location.Substring(lastDotIndex + 1);
+                    if (page.Equals("AddBookPage") || page.Equals("ProductPage") || page.Equals("DetailProductPage"))
+                    {
+                        MainScreen.Content = new ProductPage();
+                    }
+                    else if (page.Equals("OrderPage") || page.Equals("DetailOrderPage") || page.Equals("AddOrderPage"))
+                    {
+                        MainScreen.Content = new OrderPage();
+                    }
+                    else if (page.Equals("GenrePage"))
+                    {
+                        MainScreen.Content = new GenrePage();
+                    }
+                    else if (page.Equals("SettingPage"))
+                    {
+                        MainScreen.Content = new SettingPage();
+                    }
+                    else if (page.Equals("DashboardPage"))
+                    {
+                        MainScreen.Content = new DashboardPage();
+                    }
+                }
+            }
         }
     }
 }

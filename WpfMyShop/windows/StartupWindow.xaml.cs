@@ -76,15 +76,23 @@ namespace WpfMyShop
             string password = txtPasswordBox.Password;
 
             var builder = new SqlConnectionStringBuilder();
+
+            // server Tan
+            //builder.DataSource = "DESKTOP-3A921M2";
+            // server Quang
+            builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; 
+            // server Thien
             var nameServer = ConfigurationManager.AppSettings["NameServer"];
             if (nameServer.Equals("") || nameServer.Equals(null))
             {
 
-                builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+                //builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+                builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
             }
             else
             {
-                builder.DataSource = nameServer;
+                builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
+                //builder.DataSource = nameServer;
             }
 
             var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];
@@ -94,6 +102,7 @@ namespace WpfMyShop
             }
             else
             {
+                builder.InitialCatalog = "my_shop"; // tên database demo
                 builder.InitialCatalog = nameDatabase;
             }
             builder.UserID = username;

@@ -6,7 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMyShop"
         mc:Ignorable="d"
-        Title="Dashboard" Height="720" Width="1080" WindowStartupLocation="CenterScreen" Background="Transparent">
+        Title="Dashboard" Height="720" Width="1080" WindowStartupLocation="CenterScreen" Background="Transparent"
+        Closing="Close_Window" Loaded="Window_Loaded">
     <Border Background="#eff2f7" CornerRadius="20" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown"> 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -72,10 +73,10 @@
                             </Button>
                         </StackPanel>
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Click="settingBtn_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Dashboard"/>
+                                    <TextBlock Text="Setting"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

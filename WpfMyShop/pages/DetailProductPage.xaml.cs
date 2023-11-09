@@ -1,7 +1,10 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,31 +98,6 @@ namespace WpfMyShop.pages
             {
                 _backup.CopyProperties(book);
             }
-        }
-
-        private void onClickIncrease(object sender, RoutedEventArgs e)
-        {
-            int num = int.Parse(TextboxNumProduct.Text);
-            if (num < books[index].Stock)
-            {
-                num++;
-                TextboxNumProduct.Text = num.ToString();
-            }
-        }
-
-        private void onClickDecrease(object sender, RoutedEventArgs e)
-        {
-            int num = int.Parse(TextboxNumProduct.Text);
-            if ( num >= 2)
-            {
-                num--;
-                TextboxNumProduct.Text = num.ToString();
-            }
-        }
-
-        private void addCardBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
