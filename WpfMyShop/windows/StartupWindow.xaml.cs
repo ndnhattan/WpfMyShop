@@ -80,7 +80,7 @@ namespace WpfMyShop
             // server Tan
             //builder.DataSource = "DESKTOP-3A921M2";
             // server Quang
-            builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; 
+            //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016"; 
             // server Thien
             var nameServer = ConfigurationManager.AppSettings["NameServer"];
             if (nameServer.Equals("") || nameServer.Equals(null))
@@ -91,8 +91,8 @@ namespace WpfMyShop
             }
             else
             {
-                builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
-                //builder.DataSource = nameServer;
+                //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
+                builder.DataSource = nameServer;
             }
 
             var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];
