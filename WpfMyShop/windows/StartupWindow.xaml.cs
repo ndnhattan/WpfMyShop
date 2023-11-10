@@ -91,8 +91,8 @@ namespace WpfMyShop
             }
             else
             {
-                //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
-                builder.DataSource = nameServer;
+                builder.DataSource = "DESKTOP-3A921M2";
+                //builder.DataSource = nameServer;
             }
 
             var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];

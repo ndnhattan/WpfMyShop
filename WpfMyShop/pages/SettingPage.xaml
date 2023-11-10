@@ -12,5 +12,7 @@
         <TextBlock Text="Items per page: " Canvas.Left="84" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" FontSize="25" />
         <TextBox x:Name="TextBoxPaging" Canvas.Left="275" Canvas.Top="66" HorizontalAlignment="Left" Height="44" VerticalAlignment="Center" Width="70" FontSize="25" BorderBrush="Black" BorderThickness="1"/>
         <Button x:Name="changePagingButton" Content="Change" Click="changePagingButton_Click" Canvas.Left="375" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Height="44"/>
+        <TextBlock Text="Import data from Excel: " Canvas.Left="84" Canvas.Top="135" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" FontSize="25" />
+        <Button x:Name="importBtn" Content="Import" Click="importBtn_Click" Canvas.Left="375" Canvas.Top="135" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Height="44" Width="118"/>
     </Canvas>
 </Page>
