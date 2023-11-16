@@ -1,0 +1,81 @@
+﻿<Window x:Class="WpfMyShop.windows.EditDiscountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfMyShop.windows"
+        mc:Ignorable="d"
+        Title="EditDiscountWindow" Height="450" Width="800" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
+                <TextBox x:Name="TextblockName" Text="Tên: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
+                <TextBox x:Name="TextboxName" Text="{Binding Name}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1035"/>
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
+                <TextBox x:Name="TextblockValue" Text="Giá trị giảm: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
+                <TextBox x:Name="TextboxValue" Text="{Binding Value}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="900"/>
+            </Viewbox>
+        </Grid>
+
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
+                <TextBox x:Name="TextblockCurrency" Text="Loại (VNĐ, %): " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
+                <TextBox x:Name="TextboxCurrency" Text="{Binding Currency}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="862"/>
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
+                <TextBox x:Name="TextblockCondition" Text="Giá trị tối thiểu: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50" >
+                <TextBox x:Name="TextboxCondition" Text="{Binding Condition}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="845"/>
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="4" Margin="0,15,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="confirmBtn" Content="Sửa" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
+            <Button x:Name="cancelBtn" Content="Hủy" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
+        </Grid>
+    </Grid>
+</Window>

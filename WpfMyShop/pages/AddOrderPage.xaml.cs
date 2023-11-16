@@ -18,6 +18,8 @@ using System.Windows.Shapes;
 using WpfMyShop.model;
 using WpfMyShop.models;
 using static System.Reflection.Metadata.BlobBuilder;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static WpfMyShop.pages.ChooseDiscountPage;
 
 namespace WpfMyShop.pages
 {
@@ -30,6 +32,8 @@ namespace WpfMyShop.pages
         BindingList<OrderBook> ListOrderBook = new BindingList<OrderBook>() { };
         public static bool isAddFail = false;
         public event EventHandler ScreenClosed;
+        Order order = new Order();
+        Discount discount;
         public AddOrderPage(BindingList<Order> _orders)
         {
             InitializeComponent();
@@ -64,17 +68,26 @@ namespace WpfMyShop.pages
                 price += ListOrderBook[i].Price;
                 cost += ListOrderBook[i].Cost;
             }
-            Order order = new Order()
+            if (discount != null)
             {
-                CustomerId = customer_id,
-                ListOrderBook = ListOrderBook,
-                Price = price,
-                Cost = cost,
-                Date = date
-            };
+                if (discount.Currency.Equals("%"))
+                {
+                    price -= (int)(price * discount.Value * 0.01);
+                }
+                else
+                {
+                    price -= discount.Value;
+                }
+            }
+
+            order.CustomerId = customer_id;
+            order.ListOrderBook = ListOrderBook;
+            order.Price = price;
+            order.Cost = cost;
+            order.Date = date;
 
             string sql = """
-                insert into Orders(date,customer_id, cost, price) values (@Date,@CustomerID, @Cost, @Price)
+                insert into Orders(date,customer_id, cost, price, id_discount) values (@Date,@CustomerID, @Cost, @Price, @DiscountID)
                 select ident_current('Orders');
              """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
@@ -82,6 +95,12 @@ namespace WpfMyShop.pages
             command.Parameters.Add("@Cost", System.Data.SqlDbType.Int).Value = order.Cost;
             command.Parameters.Add("@Price", System.Data.SqlDbType.Int).Value = order.Price;
             command.Parameters.Add("@Date", System.Data.SqlDbType.DateTime).Value = order.Date;
+            int discountID = 0;
+            if (discount != null)
+            {
+                discountID = order.Discount.Id;
+            }
+            command.Parameters.Add("@DiscountID", System.Data.SqlDbType.Int).Value = discountID;
             int id = 0;
             try
             {
@@ -175,6 +194,27 @@ namespace WpfMyShop.pages
         {
             var OrderBook = OrderBookList.SelectedItem;
             ListOrderBook.Remove((OrderBook)OrderBook);
+        }
+
+        private void ChooseDiscountPage_PageClosed(object sender, DiscountEventArgs e)
+        {
+            // Nhận thông tin về Discount ở đây
+            discount = e.Discount;
+            order.Discount = discount;
+            textboxDiscount.Text = discount.Name;
+        }
+
+        private void btnChooseDiscount_Click(object sender, RoutedEventArgs e)
+        {
+            int total = 0;
+            for (int i=0;i< ListOrderBook.Count;i++)
+            {
+                total = total + ListOrderBook[i].Price * ListOrderBook[i].Quantity;
+            }
+
+            ChooseDiscountPage page = new ChooseDiscountPage(total);
+            ChooseDiscountPage.PageClosed += ChooseDiscountPage_PageClosed;
+            NavigationService.Navigate(page);
         }
     }
 }

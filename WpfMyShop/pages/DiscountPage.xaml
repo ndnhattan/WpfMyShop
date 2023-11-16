@@ -1,0 +1,87 @@
+﻿<Page x:Class="WpfMyShop.pages.DiscountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WpfMyShop.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DiscountPage" Loaded="Page_Loaded">
+
+    <Grid>
+        <materialDesign:DialogHost  
+          DialogTheme="Light"
+          DialogContentUniformCornerRadius="20">
+            
+            <Border
+                MinHeight="256"
+                BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                BorderThickness="1"
+                ClipToBounds="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <ListView Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="discountsList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" SelectionChanged="discountsList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="25" Margin="0,10,0,10">
+                                        <Run Text="{Binding Name}" FontWeight="Bold"/>
+                                        <LineBreak/>
+                                        <Run Text="Giảm"/>
+                                        <Run Text="{Binding Value}"/>
+                                        <Run Text="{Binding Currency}"/>
+                                        <Run Text="khi mua trên"/>
+                                        <Run Text="{Binding Condition}"/>
+                                        <Run Text="VNĐ"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="LightBlue" />
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                        <Grid Grid.Row="1" MaxHeight="75">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Width="100" Grid.Column="0" Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_DeleteDiscount" Click="btn_DeleteDiscount_Click"/>
+                            <Button Width="100" Grid.Column="1" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_EditDiscount" Click="btn_EditDiscount_Click" />
+                        </Grid>
+                    </Grid>
+
+                    <materialDesign:ColorZone
+                        Grid.Row="1"
+                        Effect="{DynamicResource MaterialDesignShadowDepth5}"
+                      Mode="PrimaryMid">
+                        <TextBlock
+                          Margin="16"
+                          Text="Discount page" />
+                    </materialDesign:ColorZone>
+                    <Button 
+                        Click="addBtn_Click"
+                    Grid.Row="0"
+                    Margin="0,0,28,28"
+                    HorizontalAlignment="Right"
+                  Content="{materialDesign:PackIcon Kind=Plus,Size=22}"
+                  Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}" Grid.RowSpan="2" Height="40" VerticalAlignment="Bottom" />
+                </Grid>
+            </Border>
+        </materialDesign:DialogHost>
+    </Grid>
+</Page>

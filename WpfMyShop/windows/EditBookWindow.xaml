@@ -36,10 +36,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockName" Text="Tên: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockName" Text="Tên: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxName" Text="{Binding Name}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/> 
+                <TextBox x:Name="TextboxName" Text="{Binding Name}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1400"/> 
             </Viewbox>
         </Grid>
 
@@ -49,10 +49,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockAuthor" Text="Tác giả: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockAuthor" Text="Tác giả: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxAuthor" Text="{Binding Author}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxAuthor" Text="{Binding Author}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1344"/>
             </Viewbox>
         </Grid>
 
@@ -62,10 +62,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockCost" Text="Giá mua: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockCost" Text="Giá mua: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxCost" Text="{Binding Cost, Converter={StaticResource priceConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxCost" Text="{Binding Cost, Converter={StaticResource priceConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1320"/>
             </Viewbox>
         </Grid>
 
@@ -75,10 +75,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockPrice" Text="Giá bán gốc: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockPrice" Text="Giá bán gốc: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxPrice" Text="{Binding Price, Converter={StaticResource priceConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxPrice" Text="{Binding Price, Converter={StaticResource priceConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1260"/>
             </Viewbox>
         </Grid>
 
@@ -88,10 +88,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockPromoPrice" Text="Giá bán sau khi giảm: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockPromoPrice" Text="Giá bán sau khi giảm: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxPromoPrice" Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxPromoPrice" Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1110"/>
             </Viewbox>
         </Grid>
 
@@ -101,10 +101,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockYear" Text="Năm xuất bản: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockYear" Text="Năm xuất bản: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxYear" Text="{Binding Year}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxYear" Text="{Binding Year}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1222"/>
             </Viewbox>
         </Grid>
 
@@ -114,10 +114,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblocSold" Text="Đã bán: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblocSold" Text="Đã bán: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxSold" Text="{Binding Sold}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxSold" Text="{Binding Sold}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1340"/>
             </Viewbox>
         </Grid>
 
@@ -127,10 +127,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockStock" Text="Còn lại: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockStock" Text="Còn lại: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <TextBox x:Name="TextboxStock" Text="{Binding Stock}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxStock" Text="{Binding Stock}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1344"/>
             </Viewbox>
         </Grid>
 
@@ -140,10 +140,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <TextBox x:Name="TextblockImage" Text="Hình: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockImage" Text="Hình: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxImage" Text="{Binding Image}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxImage" Text="{Binding Image}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1380"/>
             </Viewbox>
         </Grid>
 
@@ -153,10 +153,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblockGenre" Text="Thể loại: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextblockGenre" Text="Thể loại: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <TextBox x:Name="TextboxGenre" Text="{Binding GenreId, Converter={StaticResource genreConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxGenre" Text="{Binding GenreId, Converter={StaticResource genreConverter}}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1328"/>
             </Viewbox>
         </Grid>
 
