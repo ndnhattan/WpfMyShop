@@ -87,8 +87,6 @@ namespace WpfMyShop.pages
                         command2.Parameters.Add("@Quantity", System.Data.SqlDbType.Int).Value = EditedOrder.ListOrderBook[i].Quantity;
                         command2.ExecuteScalar();
                     }
-
-                    DialogResult = true;
                     
                     EditOrderWindow parentWindow = (EditOrderWindow)EditOrderWindow.GetWindow(this);
 
@@ -102,7 +100,7 @@ namespace WpfMyShop.pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Sửa thất bại");
+                MessageBox.Show(ex.Message.ToString());
                 DialogResult = false;
             }
         }

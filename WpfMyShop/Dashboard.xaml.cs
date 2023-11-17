@@ -24,7 +24,7 @@ namespace WpfMyShop
     {
         public static string page = "";
         public static int selectedIndex = -1;
-        public static bool isLoaded = false;
+        public static bool isLoaded = false; //avoid infinite loop
         public Dashboard()
         {
             InitializeComponent();
@@ -125,8 +125,17 @@ namespace WpfMyShop
                     {
                         MainScreen.Content = new DashboardPage();
                     }
+                    else if (page.Equals("DiscountPage") || page.Equals("AddDiscountPage"))
+                    {
+                        MainScreen.Content = new DiscountPage();
+                    }
                 }
             }
+        }
+
+        private void discountBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new DiscountPage();
         }
     }
 }

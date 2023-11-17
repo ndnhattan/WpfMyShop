@@ -1,0 +1,58 @@
+﻿<Page x:Class="WpfMyShop.pages.ChooseDiscountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfMyShop.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChooseDiscountPage" Loaded="Page_Loaded">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="discountsList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" SelectionChanged="discountsList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="25" Margin="0,10,0,10">
+                                    <Run Text="{Binding Name}" FontWeight="Bold"/>
+                                    <LineBreak/>
+                                    <Run Text="Giảm"/>
+                                    <Run Text="{Binding Value}"/>
+                                    <Run Text="{Binding Currency}"/>
+                                    <Run Text="khi mua trên"/>
+                                    <Run Text="{Binding Condition}"/>
+                                    <Run Text="VNĐ"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <Grid Grid.Row="1" MaxHeight="75">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Width="100" Grid.Column="0" Content="Chọn" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_ChooseDiscount" Click="btn_ChooseDiscount_Click"/>
+                    <Button Width="100" Grid.Column="1" Content="Hủy" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_CancelDiscount" Click="btn_CencelDiscount_Click" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
