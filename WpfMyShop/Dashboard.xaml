@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Dashboard" Height="720" Width="1080" WindowStartupLocation="CenterScreen" Background="Transparent"
         Closing="Close_Window" Loaded="Window_Loaded">
-    <Border Background="#eff2f7" CornerRadius="20" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown"> 
+    <Border Background="#eff2f7" CornerRadius="20" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -85,6 +85,10 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Report Finance"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Top">
                             <Button Style="{StaticResource menuButton}" Click="discountBtn_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
@@ -105,6 +109,10 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Top Selling"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Top">
                             <Button Style="{StaticResource menuButton}" Name="customerBtn" Click="customerBtn_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
@@ -112,16 +120,17 @@
                                 </StackPanel>
                             </Button>
                         </StackPanel>
-                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
-                            <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Log out"/>
-                            </StackPanel>
-                        </Button>
-
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Log out"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
                     </DockPanel>
                 </Border>
-            </Grid>   
+            </Grid>
             <!--Main screen-->
             <Grid Grid.Column="1" Margin="30 20 20 20">
                 <Grid.RowDefinitions>
@@ -133,9 +142,9 @@
             </Grid>
 
             <!--Text box Search-->
-            
-            
+
+
         </Grid>
     </Border>
-    
+
 </Window>
