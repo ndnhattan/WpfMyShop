@@ -1,22 +1,14 @@
-﻿<Page x:Class="WpfMyShop.pages.OrderPage"
+﻿<Page x:Class="WpfMyShop.pages.CustomerPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
- xmlns:converters="clr-namespace:WpfMyShop.utils"
- xmlns:local="clr-namespace:WpfMyShop.pages"
- xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
- mc:Ignorable="d" 
- Background="#eff2f7"
- d:DesignHeight="450" d:DesignWidth="800"
-      Title="OrderPage" Loaded="Page_Loaded">
-
-    <Page.Resources>
-        <converters:PathConverter x:Key="pathConverter"/>
-        <converters:PriceConverter x:Key="priceConverter"/>
-        
-    </Page.Resources>
+      xmlns:local="clr-namespace:WpfMyShop.pages"
+      xmlns:converters="clr-namespace:WpfMyShop.utils"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CustomerPage" Loaded="Page_Loaded">
     <Grid Background="#eff2f7">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -24,7 +16,7 @@
         </Grid.ColumnDefinitions>
         <!--function(left) Menu-->
         <StackPanel Margin="4 10 4 0">
-            <TextBlock FontWeight="Bold" Text="Sắp xếp theo"/>
+            <TextBlock FontWeight="Bold" Text="Sắp xếp theo ngày sinh"/>
             <ComboBox Background="White" Foreground="Black" Margin="10 10 10 10" Name="filterComboBox" SelectionChanged="filterComboBox_SelectionChanged" Width="120" Height="28" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate >
@@ -55,16 +47,16 @@
             <Button
                   Width="130"
                 Height="25"
-                Content="Áp dụng"
+Content="Áp dụng"
                   Name="applyPriceBtn"
                   Click="applyPriceBtn_Click"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+Style="{StaticResource MaterialDesignRaisedLightButton}"
+ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             <Button
                 Width="130"
                 Height="25"
-                Content="Thêm đơn hàng"
+                Content="Thêm khách hàng"
                 Margin="0,20,0,0"
                 Name="addBtn"
                 Click="addBtn_Click"
@@ -85,10 +77,12 @@
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#eff2f7" Foreground="Black" AutoGenerateColumns="False" MouseLeftButtonDown="DataGrid_MouseLeftButtonDown" SelectionChanged="orderGrid_SelectionChanged">
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="#" Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
-                        <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                        <DataGridTextColumn Header="Cost" Binding="{Binding Cost}"/>
-                        <DataGridTextColumn Header="Customer" Binding="{Binding CustomerName}"/>
+                        <DataGridTextColumn Header="FullName" Binding="{Binding FullName}"/>
+                        <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
+                        <DataGridTextColumn Header="BirthDay" Binding="{Binding DOB}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}"/>
+                        <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
                     </DataGrid.Columns>
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -137,4 +131,3 @@
 
     </Grid>
 </Page>
-

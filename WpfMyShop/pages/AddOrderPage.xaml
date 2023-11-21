@@ -11,6 +11,7 @@
 
     <Page.Resources>
         <converters:DateConverter x:Key="dateConverter"/>
+        <converters:DiscountConverter x:Key="discountConverter"/>
     </Page.Resources>
 
     <Grid>
@@ -19,6 +20,7 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
@@ -79,7 +81,17 @@
             </ListView>
         </Grid>
 
-        <Grid Grid.Row="4" VerticalAlignment="Bottom">
+        <Grid Grid.Row="4" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Background="#3AA9AD" x:Name="btnChooseDiscount" Content="Chọn mã giảm giá" Click="btnChooseDiscount_Click" Grid.Column="0"/>
+            <TextBox Margin="20,0,5,0" Grid.Column="1" x:Name="textboxDiscount" VerticalContentAlignment="Center" Focusable="False" Foreground="Black" />
+        </Grid>
+
+        <Grid Grid.Row="5" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

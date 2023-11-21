@@ -1,6 +1,7 @@
 ﻿using Azure;
 using Microsoft.Data.SqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -34,7 +35,6 @@ namespace WpfMyShop.pages
         public OrderPage()
         {
             InitializeComponent();
-            
         }
 
         public BindingList<Order> _orders;
@@ -106,6 +106,7 @@ namespace WpfMyShop.pages
 
             int count = -1;
             _orders = new BindingList<Order>();
+            BindingList<int> arrayListDiscountID = new BindingList<int> { };
             using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -116,6 +117,16 @@ namespace WpfMyShop.pages
                     int cost = (int)reader["cost"];
                     DateTime date = (DateTime)reader["date"];
                     string customer_name = (string)reader["fullname"];
+                    object discountID = reader["id_discount"];
+                    if (discountID != null && !Convert.IsDBNull(discountID))
+                    {
+                        int id_discount = (int)discountID;
+                        arrayListDiscountID.Add(id_discount);
+                    }
+                    else
+                    {
+                        arrayListDiscountID.Add(0);
+                    }
 
                     var order = new Order()
                     {
@@ -132,6 +143,39 @@ namespace WpfMyShop.pages
                     _orders.Add(order);
                 }
                 reader.Close();
+            }
+
+            for (int i = 0; i < arrayListDiscountID.Count; i++)
+            {
+                if (arrayListDiscountID[i] != 0)
+                {
+                    sql = "select * from Discount where id = @id";
+                    command = new SqlCommand(sql, DB.Instance.Connection);
+                    command.Parameters.Add("@id", SqlDbType.Int).Value = arrayListDiscountID[i];
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = (int)reader["id"];
+                            int condition = (int)reader["condition"];
+                            int value = (int)reader["value"];
+                            string name = (string)reader["name"];
+                            string currency = (string)reader["currency"];
+
+                            var discount = new Discount()
+                            {
+                                Id = id,
+                                Value = value,
+                                Condition = condition,
+                                Name = name,
+                                Currency = currency
+                            };
+
+                            _orders[i].Discount = discount;
+                        }
+                        reader.Close();
+                    }
+                }
             }
 
             for (int i = 0; i < _orders.Count; i++)

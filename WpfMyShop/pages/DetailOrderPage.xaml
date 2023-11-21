@@ -11,6 +11,7 @@
 
     <Page.Resources>
         <converters:DateConverter x:Key="dateConverter"/>
+        <converters:DiscountConverter x:Key="discountConverter"/>
     </Page.Resources>
 
     <Grid>
@@ -21,9 +22,9 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <materialDesign:ColorZone
@@ -63,7 +64,7 @@
         </TextBlock>
 
         <TextBlock Grid.Row="3" FontSize="20" Margin="10,10,10,10">
-            <Run Text="Tổng giá mua : " FontWeight="Bold"/> <Run Text="{Binding Cost}"/>
+            <Run Text="Mã giảm giá : " FontWeight="Bold"/> <Run Text="{Binding Discount, Converter={StaticResource discountConverter}}"/>
         </TextBlock>
 
         <TextBlock 
@@ -93,7 +94,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" MinHeight="150" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="ordersList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" SelectionChanged="ordersList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
+            <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="265" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="ordersList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" SelectionChanged="ordersList_SelectionChanged" ItemsSource="{Binding ListOrderBook}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -130,7 +131,7 @@
                 <ColumnDefinition Width="*" MaxWidth="227"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="1">
+            <TextBlock Grid.Column="1" Margin="0,5,0,0">
                 <Run Text="Tổng: " FontWeight="Bold"/>
                 <Run Text="{Binding Price}"/>
                 <Run Text="             "/>
@@ -143,8 +144,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="deleteBtn" Content="Xóa" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click"/>
-            <Button x:Name="EditBtn" Content="Sửa" Grid.Column="1" Width="150" Background="#3AA9AD" Click="EditBtn_Click"/>
+            <Button x:Name="deleteBtn" Content="Xóa" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click" VerticalContentAlignment="Bottom"/>
+            <Button x:Name="EditBtn" Content="Sửa" Grid.Column="1" Width="150" Background="#3AA9AD" Click="EditBtn_Click" VerticalContentAlignment="Bottom"/>
         </Grid>
     </Grid>
 </Page>

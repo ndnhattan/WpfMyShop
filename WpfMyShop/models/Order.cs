@@ -16,6 +16,7 @@ namespace WpfMyShop.models
         public int Cost { get; set; }
         public int Price { get; set; }
         public string CustomerName { get; set; }
+        public Discount Discount { get; set; }
         public BindingList<OrderBook> ListOrderBook { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;

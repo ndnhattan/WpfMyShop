@@ -85,6 +85,10 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Report Finance"/>
+                            <Button Style="{StaticResource menuButton}" Click="discountBtn_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Discount"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -101,6 +105,10 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Top Selling"/>
+                            <Button Style="{StaticResource menuButton}" Name="customerBtn" Click="customerBtn_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Customer"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

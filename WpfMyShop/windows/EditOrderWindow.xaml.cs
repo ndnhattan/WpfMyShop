@@ -47,6 +47,7 @@ namespace WpfMyShop.windows
         private void HandlePageClosed(object? sender, EventArgs e)
         {
             DialogResult = true;
+            EditOrderPage.PageClosed -= HandlePageClosed;
         }
     }
 }
