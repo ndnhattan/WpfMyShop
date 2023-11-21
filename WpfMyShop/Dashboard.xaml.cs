@@ -125,6 +125,27 @@ namespace WpfMyShop
                     {
                         MainScreen.Content = new DashboardPage();
                     }
+                    //else if (page.Equals("ReportPage"))
+                    //{
+                    //    MainScreen.Content = new ReportPage();
+                    //}
+                }
+            }
+        }
+
+        private void report_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new ReportFinancePage();
+        }
+
+        private void reportProduct_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new ReportProductPage();
+        }
+
+        private void TopSellingProduct_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new TopSellingProductPage();
                     else if (page.Equals("DiscountPage") || page.Equals("AddDiscountPage"))
                     {
                         MainScreen.Content = new DiscountPage();

@@ -27,7 +27,7 @@ namespace WpfMyShop.windows
         private void btn_Accept_Click(object sender, RoutedEventArgs e)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["NameServer"].Value = $"{textBoxServer.Text}";
+            config.AppSettings.Settings["NameServer"].Value = $".\\{textBoxServer.Text}";
             config.AppSettings.Settings["NameDatabase"].Value = textBoxDatabase.Text;
             config.Save(ConfigurationSaveMode.Minimal);
 

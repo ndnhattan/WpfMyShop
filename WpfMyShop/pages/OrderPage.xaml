@@ -55,12 +55,12 @@
             <Button
                   Width="130"
                 Height="25"
-Content="Áp dụng"
+                Content="Áp dụng"
                   Name="applyPriceBtn"
                   Click="applyPriceBtn_Click"
-IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-Style="{StaticResource MaterialDesignRaisedLightButton}"
-ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             <Button
                 Width="130"
                 Height="25"
@@ -97,12 +97,12 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                         </Style>
 
                     </DataGrid.Resources>
-                    
-                    
+
+
                 </DataGrid>
-                    
+
             </DockPanel>
-            
+
             <StackPanel Margin="0 10 0 10"  HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
                 <Button
   Content="Previous"
