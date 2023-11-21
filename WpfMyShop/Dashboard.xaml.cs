@@ -137,5 +137,10 @@ namespace WpfMyShop
         {
             MainScreen.Content = new DiscountPage();
         }
+
+        private void customerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new CustomerPage();
+        }
     }
 }
