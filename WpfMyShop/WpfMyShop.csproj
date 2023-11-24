@@ -14,6 +14,7 @@
     <EazfuscatorIntegration>MSBuild</EazfuscatorIntegration>
     <EazfuscatorActiveConfiguration>Release</EazfuscatorActiveConfiguration>
     <EazfuscatorCompatibilityVersion>2023.3</EazfuscatorCompatibilityVersion>
+    <ApplicationIcon>books.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +23,10 @@
 
   <ItemGroup>
     <Page Remove="resources\ProductPageResources.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="books.ico" />
   </ItemGroup>
 
   <ItemGroup>
