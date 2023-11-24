@@ -86,13 +86,13 @@ namespace WpfMyShop
             if (nameServer.Equals("") || nameServer.Equals(null))
             {
 
-                builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
-                //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
+                //builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+                builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
             }
             else
             {
-                //builder.DataSource = "DESKTOP-3A921M2";
-                builder.DataSource = nameServer;
+                builder.DataSource = "DESKTOP-3A921M2";
+                //builder.DataSource = nameServer;
             }
 
             var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];

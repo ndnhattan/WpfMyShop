@@ -125,6 +125,22 @@ namespace WpfMyShop
                     {
                         MainScreen.Content = new DashboardPage();
                     }
+                    else if (page.Equals("AddCustomerPage") || page.Equals("CustomerPage") || page.Equals("DetailCustomerPage"))
+                    {
+                        MainScreen.Content = new CustomerPage();
+                    }
+                    else if (page.Equals("ReportFinancePage"))
+                    {
+                        MainScreen.Content = new ReportFinancePage();
+                    }
+                    else if (page.Equals("ReportProductPage"))
+                    {
+                        MainScreen.Content = new ReportProductPage();
+                    }
+                    else if (page.Equals("TopSellingProductPage"))
+                    {
+                        MainScreen.Content = new TopSellingProductPage();
+                    }
                     //else if (page.Equals("ReportPage"))
                     //{
                     //    MainScreen.Content = new ReportPage();
