@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMyShop"
         mc:Ignorable="d"
-        Title="Dashboard" Height="800" Width="1080" WindowStartupLocation="CenterScreen" 
+        Title="Super Book Shop" Height="750" Width="1080" WindowStartupLocation="CenterScreen" 
         Closing="Close_Window" Loaded="Window_Loaded">
     <Border Background="#eff2f7"  MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown"> 
         <Grid>
@@ -21,24 +21,18 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!--Menu Icon-->
-                <Button Margin="20 28 0 35" Style="{StaticResource topButton}">
-                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
-                </Button>
-                <Border Grid.Row="1" Background="#3AA9AD" CornerRadius="0 50 0 30">
+                <Border  Margin="0 0 0 0" Grid.Row="1" Background="#3AA9AD" CornerRadius="0 0 0 0">
                     <DockPanel>
                         <!--Menu logo-->
-                        <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
-                            <Ellipse>
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="Images/khanhbinh.jpg"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
+                        <Border Width="80" Height="80"  Padding="3" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0 20 0 0">
+                            
+                            <Image  Source="Images/book-shop.png"/>
                         </Border>
                         <!--Menu Title-->
-                        <TextBlock Text="My Shop" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
-                        <TextBlock Text="Thiện-Tân-Quang" Foreground="White" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center" />
+                        <TextBlock Text="Book Shop" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center" Margin="5 0 0 0"/>
+                       
                         <!--Menu separator-->
-                        <Separator Margin='25' DockPanel.Dock="Top" Height="0.8" Background="AliceBlue"/>
+                        <Separator Margin='25' DockPanel.Dock="Top" Height="10" Background="AliceBlue"/>
 
                         <StackPanel DockPanel.Dock="Top">
                             <Button Style="{StaticResource menuButton}" x:Name="btnDashboard" Click="btnDashboard_Click">
@@ -51,7 +45,7 @@
                         <StackPanel DockPanel.Dock="Top">
                             <Button Style="{StaticResource menuButton}" Click="ProductBtn_Click" Name="ProductBtn">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="GenderMaleFemale" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="Book" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Product"/>
                                 </StackPanel>
                             </Button>
@@ -67,16 +61,36 @@
                         <StackPanel DockPanel.Dock="Top">
                             <Button Style="{StaticResource menuButton}" Name="genreBtn" Click="genreBtn_Click">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="AbugidaDevanagari" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Genre"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
+                       
+                       
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" Click="settingBtn_Click">
+                            <Button Style="{StaticResource menuButton}" Click="discountBtn_Click">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="FindReplace" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Setting"/>
+                                    <Icon:PackIconMaterial Kind="Sale" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Discount"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        
+                       
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button Style="{StaticResource menuButton}" Name="customerBtn" Click="customerBtn_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Customer"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button Style="{StaticResource menuButton}" Click="TopSellingProduct_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="MicrosoftSharepoint" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Top Selling"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -89,45 +103,29 @@
                             </Button>
                         </StackPanel>
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" Click="discountBtn_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="Sale" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Discount"/>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-                        <StackPanel DockPanel.Dock="Top">
                             <Button Style="{StaticResource menuButton}" Click="reportProduct_Click">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="AbTesting" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Report Product"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
-                        <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" Click="TopSellingProduct_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="MicrosoftSharepoint" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Top Selling"/>
-                                </StackPanel>
-                            </Button>
-                         </StackPanel>
-                        <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" Name="customerBtn" Click="customerBtn_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="StarSettingsOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Customer"/>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-                        <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                        <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+                            <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="logout_btnClick">
                                     <StackPanel Orientation="Horizontal">
                                         <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
                                         <TextBlock Text="Log out"/>
                                     </StackPanel>
                             </Button>
                          </StackPanel>
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button Style="{StaticResource menuButton}" Click="settingBtn_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="ApplicationSettings" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Setting"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
                     </DockPanel>
                 </Border>
             </Grid>
