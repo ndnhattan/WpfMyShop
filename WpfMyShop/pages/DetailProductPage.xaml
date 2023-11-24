@@ -32,7 +32,7 @@
                 VerticalAlignment="Center"
                 Name="ProductNameTitle"
                 FontSize="25"
-                Text="Thông tin chi tiết"/>
+                Text="Detail information"/>
         </materialDesign:ColorZone>
 
         <Grid Grid.Row="1" Margin="0,10,0,10">
@@ -63,49 +63,49 @@
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Row="0" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockName">
-                        <Run Text="Tên: " FontWeight="Bold"/> <Run Text="{Binding Name}"/>
+                        <Run Text="Name: " FontWeight="Bold"/> <Run Text="{Binding Name}"/>
                     </TextBlock>
                 </Viewbox>
                 <Viewbox Grid.Row="1" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockAuthor" >
-                        <Run Text="Tác giả: " FontWeight="Bold"/> <Run Text="{Binding Author}"/>
+                        <Run Text="Author: " FontWeight="Bold"/> <Run Text="{Binding Author}"/>
                     </TextBlock>
                 </Viewbox>
                 <Viewbox  Grid.Row="2" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockCost" >
-                        <Run Text="Giá mua: " FontWeight="Bold"/> <Run Text="{Binding Cost, Converter={StaticResource priceConverter}}"/>
+                        <Run Text="Cost: " FontWeight="Bold"/> <Run Text="{Binding Cost, Converter={StaticResource priceConverter}}"/>
                     </TextBlock>
                 </Viewbox>
                 <Viewbox Grid.Row="3" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockPrice" Grid.Row="3">
-                        <Run Text="Giá bán gốc: " FontWeight="Bold"/> <Run Text="{Binding Price, Converter={StaticResource priceConverter}}"/>
+                        <Run Text="Price: " FontWeight="Bold"/> <Run Text="{Binding Price, Converter={StaticResource priceConverter}}"/>
                     </TextBlock>
                 </Viewbox>
                 <Viewbox Grid.Row="4" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockPromo">
-                        <Run Text="Giá bán sau khi giảm: " FontWeight="Bold"/> <Run Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}"/>
+                        <Run Text="Promo price: " FontWeight="Bold"/> <Run Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}"/>
                     </TextBlock>
                 </Viewbox>
                 <Viewbox Grid.Row="5" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockYear">
-                        <Run Text="Năm xuất bản: " FontWeight="Bold"/> <Run Text="{Binding Year}"/>
+                        <Run Text="Publish year: " FontWeight="Bold"/> <Run Text="{Binding Year}"/>
                     </TextBlock>
                 </Viewbox>
                 <Viewbox Grid.Row="6" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockSold">
-                        <Run Text="Đã bán: " FontWeight="Bold"/> <Run Text="{Binding Sold}"/>
+                        <Run Text="Sold: " FontWeight="Bold"/> <Run Text="{Binding Sold}"/>
                     </TextBlock>
                 </Viewbox>
 
                 <Viewbox Grid.Row="7" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockStock" >
-                        <Run Text="Còn lại: " FontWeight="Bold"/> <Run Text="{Binding Stock}"/>
+                        <Run Text="Stock: " FontWeight="Bold"/> <Run Text="{Binding Stock}"/>
                     </TextBlock>
                 </Viewbox>
 
                 <Viewbox Grid.Row="8" HorizontalAlignment="Left">
                     <TextBlock x:Name="TextblockGenre" >
-                        <Run Text="Thể loại: " FontWeight="Bold"/> <Run Text="{Binding GenreId, Converter={StaticResource genreConverter}}"/>
+                        <Run Text="Genre: " FontWeight="Bold"/> <Run Text="{Binding GenreId, Converter={StaticResource genreConverter}}"/>
                     </TextBlock>
                 </Viewbox>
             </Grid>
@@ -115,8 +115,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="deleteBtn" Content="Xóa" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click"/>
-            <Button x:Name="EditBtn" Content="Sửa" Grid.Column="2" Width="150" Background="#3AA9AD" Click="EditBtn_Click"/>
+            <Button x:Name="deleteBtn" Content="Delete" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click"/>
+            <Button x:Name="EditBtn" Content="Edit" Grid.Column="2" Width="150" Background="#3AA9AD" Click="EditBtn_Click"/>
         </Grid>
     </Grid>
 </Page>

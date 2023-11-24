@@ -52,7 +52,7 @@ namespace WpfMyShop.pages
             if (TextboxName.Text.Length <= 0 || TextboxGender.Text.Length <= 0 ||
                 TextboxPhoneNumber.Text.Length <= 0 || TextboxEmail.Text.Length <= 0 || TextboxAddress.Text.Length <= 0)
             {
-                MessageBox.Show("Cần điển đầy đủ thông tin");
+                MessageBox.Show("Please fill the entire form");
                 isAddFail = true;
             }
 
@@ -92,11 +92,11 @@ namespace WpfMyShop.pages
                 {
                     customer.Id = id;
                     customers.Add(customer);
-                    MessageBox.Show("Thêm thành công");
+                    MessageBox.Show("Add successfully");
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Add failed");
                 }
                 if (NavigationService.CanGoBack)
                 {

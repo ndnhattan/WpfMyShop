@@ -51,7 +51,7 @@ namespace WpfMyShop.pages
                 customer_id = int.Parse(textboxIDCustomer.Text);
             } catch (Exception ex)
             {
-                MessageBox.Show("ID không hợp lệ");
+                MessageBox.Show("Invalid ID");
                 return;
             }
 
@@ -59,7 +59,7 @@ namespace WpfMyShop.pages
             DateTime date;
             if (!(DateTime.TryParseExact(dateString, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)))
             {
-                MessageBox.Show("Chuỗi không đúng định dạng yyyy-MM-dd");
+                MessageBox.Show("Malformed string yyyy-MM-dd");
                 return;
             }
 
@@ -107,7 +107,7 @@ namespace WpfMyShop.pages
                 id = (int)((decimal)command.ExecuteScalar());
             } catch(Exception ex)
             {
-                MessageBox.Show("Dữ liệu ngày quá xa hiện tại");
+                MessageBox.Show("Data dates are too far away now");
                 return;
             }
 
@@ -125,11 +125,11 @@ namespace WpfMyShop.pages
                     commandOrderBook.Parameters.Add("@Quantity", System.Data.SqlDbType.Int).Value = ListOrderBook[i].Quantity;
                     commandOrderBook.ExecuteScalar();
                 }
-                MessageBox.Show("Thêm thành công");
+                MessageBox.Show("Add successfully");
             }
             else
             {
-                MessageBox.Show("Thêm thất bại");
+                MessageBox.Show("Add failed");
             }
 
             if (NavigationService.CanGoBack)

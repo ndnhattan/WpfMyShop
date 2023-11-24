@@ -52,7 +52,7 @@ namespace WpfMyShop.pages
                 name = TextboxName.Text;
                 if (currency!="VNĐ" && currency != "%")
                 {
-                    MessageBox.Show("Dữ liệu không hợp lệ");
+                    MessageBox.Show("Invalid data");
                     return;
                 }
 
@@ -77,11 +77,11 @@ namespace WpfMyShop.pages
                     Value = value,
                     Condition = condition
                 };
-                MessageBox.Show("Thêm thành công");
+                MessageBox.Show("Add successfully");
             }
             else
             {
-                MessageBox.Show("Thêm thất bại");
+                MessageBox.Show("Add failed");
             }
             if (NavigationService.CanGoBack)
             {

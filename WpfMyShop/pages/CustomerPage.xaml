@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
         <!--function(left) Menu-->
         <StackPanel Margin="4 10 4 0">
-            <TextBlock FontWeight="Bold" Text="Sắp xếp theo ngày sinh"/>
+            <TextBlock FontWeight="Bold" Text="Sort by birthdate"/>
             <ComboBox Background="White" Foreground="Black" Margin="10 10 10 10" Name="filterComboBox" SelectionChanged="filterComboBox_SelectionChanged" Width="120" Height="28" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate >
@@ -26,12 +26,12 @@
                 </ComboBox.ItemTemplate>
 
             </ComboBox>
-            <TextBlock Text="Thời gian" FontWeight="Bold"/>
+            <TextBlock Text="Date" FontWeight="Bold"/>
             <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Center">
                 <DatePicker
                     Name="startDate"
   Width="100"
-  materialDesign:HintAssist.Hint="Từ ngày"
+  materialDesign:HintAssist.Hint="From"
   materialDesign:TextFieldAssist.HasClearButton="True"
   Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                     PreviewTextInput="DatePicker_PreviewTextInput"/>
@@ -39,7 +39,7 @@
                 <DatePicker
                     Name="endDate"
   Width="100"
-  materialDesign:HintAssist.Hint="Đến ngày"
+  materialDesign:HintAssist.Hint="To"
   materialDesign:TextFieldAssist.HasClearButton="True"
   Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                     PreviewTextInput="DatePicker_PreviewTextInput"/>
@@ -47,7 +47,7 @@
             <Button
                   Width="130"
                 Height="25"
-Content="Áp dụng"
+Content="Apply"
                   Name="applyPriceBtn"
                   Click="applyPriceBtn_Click"
 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -56,7 +56,7 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             <Button
                 Width="130"
                 Height="25"
-                Content="Thêm khách hàng"
+                Content="Add customer"
                 Margin="0,20,0,0"
                 Name="addBtn"
                 Click="addBtn_Click"
