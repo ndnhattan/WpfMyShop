@@ -136,7 +136,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Frame Grid.Row="1" x:Name="MainScreen"></Frame>
+                <Frame Grid.Row="1" x:Name="MainScreen" NavigationUIVisibility="Hidden"></Frame>
             </Grid>
 
             <!--Text box Search-->
