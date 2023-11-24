@@ -47,7 +47,7 @@ namespace WpfMyShop
                 {
                     this.WindowState = WindowState.Normal;
                     this.Width = 1080;
-                    this.Height=720;
+                    this.Height=800;
                     IsMaximized = false;
                 }
                 else
@@ -146,12 +146,6 @@ namespace WpfMyShop
         private void TopSellingProduct_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new TopSellingProductPage();
-                    else if (page.Equals("DiscountPage") || page.Equals("AddDiscountPage"))
-                    {
-                        MainScreen.Content = new DiscountPage();
-                    }
-                }
-            }
         }
 
         private void discountBtn_Click(object sender, RoutedEventArgs e)

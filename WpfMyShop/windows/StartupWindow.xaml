@@ -8,14 +8,18 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
         Background="Transparent"
-        Title="Login" Height="500" Width="800" Loaded="Window_Loaded">
+        Title="Super Book Shop" Height="500" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="66*" />
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="141*" />
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="286*"/>
         </Grid.ColumnDefinitions>
 
-        <Border CornerRadius="10 0 0 10">
+        <Border Grid.ColumnSpan="3" >
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#3AA9AD" Offset="0"/>
@@ -26,30 +30,20 @@
 
         </Border>
 
-        <Grid>
+        <Grid Grid.ColumnSpan="3">
             <Canvas>
                 <Polygon Points="0,20 210,120 0,250 " Fill="#4EB1B6"/>
                 <Polygon Points="85,320 200,370 120,420 " Fill="#4EB1B6"/>
                 <Ellipse Margin="250 270 0 0" Width="55" Height="55" Fill="#4EB1B6"/>
             </Canvas>
         </Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <TextBlock Style="{StaticResource titleWelcom}">
             <Run Text="Welcome"/> <LineBreak/> <Run Text="Back!"/>
             </TextBlock>
         </StackPanel>
-        <Border Background="#ffffff" Grid.Column="1" CornerRadius="0 10 10 0">
+        <Border Background="#ffffff" Grid.Column="3" Grid.ColumnSpan="3" Padding="0 50 0 0">
             <StackPanel>
-                <Image x:Name="imgClose" Source="assets/close.png" Style="{StaticResource imgClose}"/>
-
-                <Button
-  materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-  materialDesign:ButtonProgressAssist.Value="-1"
-  Content="{materialDesign:PackIcon DotsHorizontal}"
-  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignFloatingActionButton}" />
-
 
                 <TextBlock Text="Login" FontSize="35" Margin="50 20 0 0"
                        FontWeight="Bold" Foreground="#FF2B5275"/>
@@ -108,7 +102,7 @@
                     </Button>
                 </Grid>
                 <Button Content="Log in" Click="logInButton_Click" Style="{StaticResource logInButton}"/>
-                
+
             </StackPanel>
 
         </Border>

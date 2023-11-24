@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMyShop.windows"
         mc:Ignorable="d"
-        Title="SettingServerWindow" Height="400" Width="300">
+        Title="Setting Server" Height="400" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

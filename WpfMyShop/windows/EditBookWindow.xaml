@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfMyShop"
         xmlns:converters="clr-namespace:WpfMyShop.utils"
         mc:Ignorable="d"
-        Title="EditBookWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Super Book Shop" Height="450" Width="800" Loaded="Window_Loaded">
 
     <Window.Resources>
         <converters:PathConverter x:Key="pathConverter"/>

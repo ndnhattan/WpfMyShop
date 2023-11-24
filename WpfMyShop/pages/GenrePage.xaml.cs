@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
 using WpfMyShop.model;
 using WpfMyShop.models;
+using WpfMyShop.windows;
 
 namespace WpfMyShop.pages
 {
@@ -69,11 +70,7 @@ namespace WpfMyShop.pages
         }
 
 
-        private void GenrePage_Loaded(object sender, RoutedEventArgs e)
-        {
-            loadAllGenres();
-        }
-
+        
 
         private void btn_Accept_Click(object sender, RoutedEventArgs e)
         {
@@ -113,7 +110,6 @@ namespace WpfMyShop.pages
 
         }
 
-
         private void btn_DeleteGenre_Click(object sender, RoutedEventArgs e)
         {
             var genre = (Genre) genreListView.SelectedItem;
@@ -143,11 +139,12 @@ namespace WpfMyShop.pages
             //command.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = textBoxGenre.Text;
             //command.Parameters.Add("@Description", System.Data.SqlDbType.NVarChar).Value = textBoxGenreDescription.Text;
             //command.ExecuteNonQuery();
-
+            //var screen = new EditGenreWindow();
+            //screen.Show();
 
         }
 
-        private void Genre_loaded(object sender, RoutedEventArgs e)
+        private void GenrePage_loaded(object sender, RoutedEventArgs e)
         {
             loadAllGenres();
         }
