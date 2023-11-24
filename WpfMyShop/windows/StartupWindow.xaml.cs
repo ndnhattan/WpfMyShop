@@ -197,7 +197,6 @@ namespace WpfMyShop
             string bufferImgClose = "assets/close.png";
             string t_imgClose = $"{baseDirectory}{bufferImgClose}";
             var bitmapImgClose = new BitmapImage(new Uri(t_imgClose, UriKind.Absolute));
-            imgClose.Source = bitmapImgClose;
 
             string bufferImgEmail = "assets/email.png";
             string t_imgEmail = $"{baseDirectory}{bufferImgEmail}";

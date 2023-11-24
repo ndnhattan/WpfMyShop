@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfMyShop.windows"
         mc:Ignorable="d"
-        Title="EditDiscountWindow" Height="450" Width="800" Loaded="Page_Loaded">
+        Title="Super Book Shop" Height="450" Width="800" Loaded="Page_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
