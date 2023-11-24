@@ -59,25 +59,22 @@
                     Height="30" Width="50"
                     PreviewTextInput="priceTextBox_PreviewTextInput"/>
             </StackPanel>
-            <Button
+            <Button Margin="0 10 0 0"
                   Width="130"
-                Height="25"
+                Height="30"
 Content="Apply"
                   Name="applyPriceBtn"
                   Click="applyPriceBtn_Click"
 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-Style="{StaticResource MaterialDesignRaisedLightButton}"
 ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             <Button
                 Width="130"
-                Height="25"
+                Height="30"
                 Content="Add book"
                 Margin="0,20,0,0"
                 Name="addBtn"
                 Click="addBtn_Click"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
         </StackPanel>
 
         <!--Main screen-->
@@ -195,7 +192,6 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                     Name="previousBtn"
                     Click="previousBtn_Click"
   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignRaisedLightButton}"
   ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                 <ComboBox Background="White" Foreground="Black" Margin="10 0 10 0" Name="pagingComboBox" SelectionChanged="pagingComboBox_SelectionChanged" Width="200" Height="32" >
                     <ComboBox.ItemTemplate>
@@ -213,7 +209,6 @@ ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                     Name="nextBtn"
                     Click="nextBtn_Click"
   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignRaisedLightButton}"
   ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             </StackPanel>
 

@@ -53,23 +53,22 @@
                     PreviewTextInput="DatePicker_PreviewTextInput"/>
             </StackPanel>
             <Button
+                Margin="0 10 0 0"
                   Width="130"
-                Height="25"
+                Height="30"
                 Content="Apply"
                   Name="applyPriceBtn"
                   Click="applyPriceBtn_Click"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
                 ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             <Button
                 Width="130"
-                Height="25"
+                Height="30"
                 Content="Add order"
                 Margin="0,20,0,0"
                 Name="addBtn"
                 Click="addBtn_Click"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
                 ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             
         </StackPanel>
@@ -82,7 +81,7 @@
             </Grid.RowDefinitions>
 
             <DockPanel LastChildFill="True" >
-                <DataGrid Name="orderGrid" HorizontalGridLinesBrush="Cyan" CanUserAddRows="False" IsReadOnly="True"
+                <DataGrid Name="orderGrid" HorizontalGridLinesBrush="#3AA9AD" CanUserAddRows="False" IsReadOnly="True"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#eff2f7" Foreground="Black" AutoGenerateColumns="False" MouseLeftButtonDown="DataGrid_MouseLeftButtonDown" SelectionChanged="orderGrid_SelectionChanged">
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="#" Binding="{Binding Id}"/>
@@ -93,7 +92,7 @@
                     </DataGrid.Columns>
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="Background" Value="Cyan" />
+                            <Setter Property="Background" Value="#3AA9AD" />
                             <Setter Property="Foreground" Value="Black"/>
                         </Style>
 
@@ -110,7 +109,6 @@
                     Name="previousBtn"
                     Click="previousBtn_Click"
   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignRaisedLightButton}"
   ToolTip="Resource name: MaterialDesignRaisedLightButton" />
                 <ComboBox Background="White" Foreground="Black" Margin="10 0 10 0" Name="pagingComboBox" SelectionChanged="pagingComboBox_SelectionChanged" Width="200" Height="32" >
                     <ComboBox.ItemTemplate>
@@ -128,7 +126,6 @@
                     Name="nextBtn"
                     Click="nextBtn_Click"
   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignRaisedLightButton}"
   ToolTip="Resource name: MaterialDesignRaisedLightButton" />
             </StackPanel>
 
