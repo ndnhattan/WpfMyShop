@@ -47,7 +47,7 @@ namespace WpfMyShop
                 {
                     this.WindowState = WindowState.Normal;
                     this.Width = 1080;
-                    this.Height=720;
+                    this.Height=800;
                     IsMaximized = false;
                 }
                 else
