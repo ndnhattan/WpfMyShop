@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
-                <TextBox x:Name="TextblockName" Text="Tên: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+                <TextBox x:Name="TextblockName" Text="Name: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
                 <TextBox x:Name="TextboxName" Text="{Binding Name}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="1035"/>
@@ -35,10 +35,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
-                <TextBox x:Name="TextblockValue" Text="Giá trị giảm: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+                <TextBox x:Name="TextblockValue" Text="Reduction value: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
-                <TextBox x:Name="TextboxValue" Text="{Binding Value}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="900"/>
+                <TextBox x:Name="TextboxValue" Text="{Binding Value}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="865"/>
             </Viewbox>
         </Grid>
 
@@ -49,10 +49,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
-                <TextBox x:Name="TextblockCurrency" Text="Loại (VNĐ, %): " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+                <TextBox x:Name="TextblockCurrency" Text="Currency (VNĐ, %): " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
-                <TextBox x:Name="TextboxCurrency" Text="{Binding Currency}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="862"/>
+                <TextBox x:Name="TextboxCurrency" Text="{Binding Currency}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="822"/>
             </Viewbox>
         </Grid>
 
@@ -62,10 +62,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50">
-                <TextBox x:Name="TextblockCondition" Text="Giá trị tối thiểu: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
+                <TextBox x:Name="TextblockCondition" Text="Minimum value to apply discount: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="White"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50" >
-                <TextBox x:Name="TextboxCondition" Text="{Binding Condition}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="845"/>
+                <TextBox x:Name="TextboxCondition" Text="{Binding Condition}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" MinWidth="575"/>
             </Viewbox>
         </Grid>
 
@@ -74,8 +74,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="confirmBtn" Content="Sửa" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
-            <Button x:Name="cancelBtn" Content="Hủy" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
+            <Button x:Name="confirmBtn" Content="Edit" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
+            <Button x:Name="cancelBtn" Content="Cancel" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
         </Grid>
     </Grid>
 </Window>

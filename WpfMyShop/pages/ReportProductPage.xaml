@@ -21,12 +21,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Margin="4 10 4 0">
-            <TextBlock FontWeight="Bold" Text="Biểu đồ theo"/>
+            <TextBlock FontWeight="Bold" Text="Chart by"/>
             <Button
             Background="Gray"
             x:Name="btnWeek"
             Click="WeekButton_Click"
-            Content="Tuần" Margin="5 5 5 10"
+            Content="Week" Margin="5 5 5 10"
             materialDesign:ButtonAssist.CornerRadius="10"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
@@ -36,7 +36,7 @@
             Background="Gray"
             x:Name="btnMonth"
              Click="MonthButton_Click"
-             Content="Tháng" Margin="5 5 5 10"
+             Content="Month" Margin="5 5 5 10"
              materialDesign:ButtonAssist.CornerRadius="10"
              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
              Style="{StaticResource MaterialDesignRaisedButton}"
@@ -46,7 +46,7 @@
             Background="Gray"
             x:Name="btnYear"
              Click="YearButton_click"
-             Content="Năm" Margin="5 5 5 10"
+             Content="Year" Margin="5 5 5 10"
              materialDesign:ButtonAssist.CornerRadius="10"
              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
              Style="{StaticResource MaterialDesignRaisedButton}"
@@ -57,7 +57,7 @@
             x:Name="btnTime"
             Background="Gray"
             Click="TimeButton_Click"
-             Content="Thời gian" Margin="5 5 5 10"
+             Content="Time" Margin="5 5 5 10"
              materialDesign:ButtonAssist.CornerRadius="10"
              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedButton}"
@@ -99,7 +99,7 @@
                     <GroupBox Grid.Column="0" 
                     Margin="12"
                     materialDesign:ColorZoneAssist.Mode="SecondaryDark"
-                    Header="Số lượng"
+                    Header="Quantity"
                      Style="{StaticResource MaterialDesignGroupBox}">
                         <TextBlock x:Name="textQuantity"
                       d:Text="20" TextAlignment="Center" />
@@ -107,7 +107,7 @@
                     <GroupBox Grid.Column="1" 
                     Margin="12"
                     materialDesign:ColorZoneAssist.Mode="SecondaryDark"
-                    Header="Doanh thu"
+                    Header="Revenue"
                     Style="{StaticResource MaterialDesignGroupBox}">
                         <TextBlock x:Name="textFinance" 
                     d:Text="20" TextAlignment="Center" />
@@ -115,7 +115,7 @@
                     <GroupBox Grid.Column="2" 
                     Margin="12"
                     materialDesign:ColorZoneAssist.Mode="SecondaryDark"
-                    Header="Lợi nhuận"
+                    Header="Profit"
                      Style="{StaticResource MaterialDesignGroupBox}">
                         <TextBlock x:Name="textProfit"
                          d:Text="20" TextAlignment="Center" />

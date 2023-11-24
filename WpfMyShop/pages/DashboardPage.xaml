@@ -29,7 +29,7 @@
             <GroupBox Grid.Column="0" Grid.Row="0"
         Margin="12"
         materialDesign:ColorZoneAssist.Mode="SecondaryDark"
-        Header="Tổng số sản phẩm"
+        Header="Total of books"
          Style="{StaticResource MaterialDesignGroupBox}">
                 <TextBlock x:Name="textTotalProduct"
             Text="25" TextAlignment="Center" />
@@ -38,7 +38,7 @@
             <GroupBox Grid.Column="1" Grid.Row="0"
                 Margin="12"
                 materialDesign:ColorZoneAssist.Mode="SecondaryDark"
-                Header="Số lượng sản phẩm bán chạy"
+                Header="Number of best-selling books"
                 Style="{StaticResource MaterialDesignGroupBox}">
                 <TextBlock x:Name="textTotalTop5Product"
                      Text="5" TextAlignment="Center" />
@@ -47,7 +47,7 @@
             <GroupBox Grid.Column="2" Grid.Row="0"
                 Margin="12"
                 materialDesign:ColorZoneAssist.Mode="SecondaryDark"
-                Header="Số lượng đơn hàng mới trong tuần"
+                Header="Number of new orders in week"
                 Style="{StaticResource MaterialDesignGroupBox}">
                 <TextBlock x:Name="textTotalNewOrderInWeek"
                      d:Text="10" TextAlignment="Center" />
@@ -56,7 +56,7 @@
             <GroupBox Grid.Column="3" Grid.Row="0"
                 Margin="12"
                 materialDesign:ColorZoneAssist.Mode="SecondaryDark"
-                Header="Số lượng đơn hàng mới trong tháng"
+                Header="Number of new orders in month"
                 Style="{StaticResource MaterialDesignGroupBox}">
                 <TextBlock x:Name="textTotalNewOrderInMonth"
          d:Text="10" TextAlignment="Center" />

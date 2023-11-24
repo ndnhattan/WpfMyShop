@@ -183,7 +183,7 @@ namespace WpfMyShop.pages
             loadAllBooks("MONTH");
             if (_books.Count == 0)
             {
-                MessageBox.Show("Không bán được cuốn sách nào trong tháng");
+                MessageBox.Show("No books sold during the month");
                 return;
             }
         }

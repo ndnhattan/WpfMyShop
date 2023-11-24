@@ -32,14 +32,14 @@
             VerticalAlignment="Center"
             Name="ProductNameTitle"
             FontSize="25"
-            Text="Chỉnh sửa đơn hàng"/>
+            Text="Edit order"/>
         </materialDesign:ColorZone>
 
         <TextBox Grid.Row="1" MinWidth="200" Margin="5,5,5,5" x:Name="textboxIDCustomer" FontSize="15" Text="{Binding CustomerId}"
-        Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Chỉnh sửa ID khách hàng" materialDesign:HintAssist.IsFloating="False"/>
+        Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="ID of customer" materialDesign:HintAssist.IsFloating="False"/>
 
         <TextBox Grid.Row="2" MinWidth="200" Margin="5,5,5,5" x:Name="textboxDate" FontSize="15" Text="{Binding Date, Converter={StaticResource dateConverter}}"
-        Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Chỉnh sửa ngày tạo đơn hàng" materialDesign:HintAssist.IsFloating="False"/>
+        Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Order creation date" materialDesign:HintAssist.IsFloating="False"/>
 
         <Grid Grid.Row="3" >
             <Grid.ColumnDefinitions>
@@ -87,10 +87,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="confirmBtn" Content="Sửa" Grid.Column="0" Width="150" Background="#3AA9AD" Click="confirmBtn_Click"/>
-            <Button x:Name="addBookBtn" Content="Thêm sách" Grid.Column="1" Width="150" Background="Gray" Click="addBookBtn_Click"/>
-            <Button x:Name="deleteBookBtn" Content="Xóa sách" Grid.Column="2" Width="150" Background="Gray" Click="deleteBookBtn_Click"/>
-            <Button x:Name="cancelBtn" Content="Hủy" Grid.Column="3" Width="150" Background="#3AA9AD" Click="cancelBtn_Click"/>
+            <Button x:Name="confirmBtn" Content="Edit" Grid.Column="0" Width="150" Background="#3AA9AD" Click="confirmBtn_Click"/>
+            <Button x:Name="addBookBtn" Content="Add book" Grid.Column="1" Width="150" Background="Gray" Click="addBookBtn_Click"/>
+            <Button x:Name="deleteBookBtn" Content="Delete book" Grid.Column="2" Width="150" Background="Gray" Click="deleteBookBtn_Click"/>
+            <Button x:Name="cancelBtn" Content="Cancel" Grid.Column="3" Width="150" Background="#3AA9AD" Click="cancelBtn_Click"/>
         </Grid>
     </Grid>
 </Page>

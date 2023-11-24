@@ -38,10 +38,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockName" Text="Tên: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockName" Text="Name: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxName" Text="{Binding Name}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" materialDesign:HintAssist.Hint="Điền tên sách" materialDesign:HintAssist.IsFloating="False"/>
+                <TextBox x:Name="TextboxName" Text="{Binding Name}" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30" materialDesign:HintAssist.Hint="Name of book" materialDesign:HintAssist.IsFloating="False"/>
             </Viewbox>
         </Grid>
 
@@ -51,10 +51,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockAuthor" Text="Tác giả: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockAuthor" Text="Author: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxAuthor" Text="{Binding Author}" materialDesign:HintAssist.Hint="Điền tên tác giả" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxAuthor" Text="{Binding Author}" materialDesign:HintAssist.Hint="Author" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -64,10 +64,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockCost" Text="Giá mua: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockCost" Text="Cost: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxCost" Text="{Binding Cost, Converter={StaticResource priceConverter}}" materialDesign:HintAssist.Hint="Điền giá mua của sách" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxCost" Text="{Binding Cost, Converter={StaticResource priceConverter}}" materialDesign:HintAssist.Hint="Cost of book" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -77,10 +77,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPrice" Text="Giá bán gốc: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPrice" Text="Price: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxPrice" Text="{Binding Price, Converter={StaticResource priceConverter}}" materialDesign:HintAssist.Hint="Điền giá bán gốc của sách" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxPrice" Text="{Binding Price, Converter={StaticResource priceConverter}}" materialDesign:HintAssist.Hint="Price of book" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -90,10 +90,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPromoPrice" Text="Giá bán sau khi giảm: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPromoPrice" Text="Promo price: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxPromoPrice" Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}" materialDesign:HintAssist.Hint="Điền giá bán sau khi áp dụng giảm giá" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxPromoPrice" Text="{Binding PromoPrice, Converter={StaticResource priceConverter}}" materialDesign:HintAssist.Hint="Promo price of book" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -103,10 +103,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockYear" Text="Năm xuất bản: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockYear" Text="Publish year: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxYear" Text="{Binding Year}" materialDesign:HintAssist.Hint="Điền năm xuất bản" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxYear" Text="{Binding Year}" materialDesign:HintAssist.Hint="Publish year of book" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -116,10 +116,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblocSold" Text="Đã bán: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="#eff2f7"/>
+                <TextBox x:Name="TextblocSold" Text="Sold: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="#eff2f7"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxSold" Text="{Binding Sold}" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.IsFloating="False" materialDesign:HintAssist.Hint="Điền số sách đã bán" FontSize="30"/>
+                <TextBox x:Name="TextboxSold" Text="{Binding Sold}" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.IsFloating="False" materialDesign:HintAssist.Hint="The number of book sold" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -129,10 +129,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockStock" Text="Còn lại: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockStock" Text="Stock: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <TextBox x:Name="TextboxStock" Text="{Binding Stock}" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.IsFloating="False" materialDesign:HintAssist.Hint="Điền số sách còn trong kho" FontSize="30"/>
+                <TextBox x:Name="TextboxStock" Text="{Binding Stock}" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.IsFloating="False" materialDesign:HintAssist.Hint="The number of book in the stock" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -142,10 +142,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockImage" Text="Hình: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockImage" Text="Image: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextboxImage" Text="{Binding Image}" materialDesign:HintAssist.Hint="Điền link hình bìa sách" materialDesign:HintAssist.IsFloating="False" VerticalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxImage" Text="{Binding Image}" materialDesign:HintAssist.Hint="Link image of book" materialDesign:HintAssist.IsFloating="False" VerticalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -155,10 +155,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockGenre" Text="Thể loại: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockGenre" Text="Genre: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <TextBox x:Name="TextboxGenre" Text="{Binding GenreId, Converter={StaticResource genreConverter}}" materialDesign:HintAssist.Hint="Điền thể loại sách" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
+                <TextBox x:Name="TextboxGenre" Text="{Binding GenreId, Converter={StaticResource genreConverter}}" materialDesign:HintAssist.Hint="Genre of book" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
             </Viewbox>
         </Grid>
 
@@ -167,8 +167,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="confirmBtn" Content="Thêm" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
-            <Button x:Name="cancelBtn" Content="Hủy" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
+            <Button x:Name="confirmBtn" Content="Add" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
+            <Button x:Name="cancelBtn" Content="Cancel" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
         </Grid>
     </Grid>
 </Page>

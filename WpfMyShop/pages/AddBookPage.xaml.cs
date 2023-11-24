@@ -60,14 +60,14 @@ namespace WpfMyShop.pages
             }
             else
             {
-                MessageBox.Show("Thể loại không hợp lệ");
+                MessageBox.Show("Genre is inavailable");
                 isAddFail = true;
             }
 
             if (TextboxName.Text.Length <= 0 || TextboxImage.Text.Length <= 0 || TextboxAuthor.Text.Length <= 0 || TextboxYear.Text.Length <= 0 ||
                 TextboxPrice.Text.Length <= 0 || TextboxPromoPrice.Text.Length <= 0 || TextboxSold.Text.Length <= 0 || TextboxCost.Text.Length <= 0 || TextboxStock.Text.Length <= 0)
             {
-                MessageBox.Show("Cần điển đầy đủ thông tin");
+                MessageBox.Show("Please fill the entire form");
                 isAddFail = true;
             }
 
@@ -113,11 +113,11 @@ namespace WpfMyShop.pages
                 {
                     book.Id = id;
                     books.Add(book);
-                    MessageBox.Show("Thêm thành công");
+                    MessageBox.Show("Add successfully");
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Add failed");
                 }
                 if (NavigationService.CanGoBack)
                 {

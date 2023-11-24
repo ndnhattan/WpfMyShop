@@ -106,7 +106,7 @@ namespace WpfMyShop.pages
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Add failed");
                 }
                 genreListView.ItemsSource = _genres;
             }

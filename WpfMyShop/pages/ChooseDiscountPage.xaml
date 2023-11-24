@@ -49,8 +49,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Width="100" Grid.Column="0" Content="Chọn" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_ChooseDiscount" Click="btn_ChooseDiscount_Click"/>
-                    <Button Width="100" Grid.Column="1" Content="Hủy" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_CancelDiscount" Click="btn_CencelDiscount_Click" />
+                    <Button Width="100" Grid.Column="0" Content="Choose" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_ChooseDiscount" Click="btn_ChooseDiscount_Click"/>
+                    <Button Width="100" Grid.Column="1" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_CancelDiscount" Click="btn_CencelDiscount_Click" />
                 </Grid>
             </Grid>
         </Grid>

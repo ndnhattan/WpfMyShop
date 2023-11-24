@@ -17,11 +17,11 @@
         </Grid.RowDefinitions>
 
         <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="80" >
-            <TextBox MinWidth="200" x:Name="TextboxID" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền ID sách" materialDesign:HintAssist.IsFloating="False"/>
+            <TextBox MinWidth="200" x:Name="TextboxID" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="ID of book" materialDesign:HintAssist.IsFloating="False"/>
         </Viewbox>
 
         <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" MaxHeight="80">
-            <TextBox MinWidth="200" x:Name="TextboxQuantity" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền số lượng" materialDesign:HintAssist.IsFloating="False"/>
+            <TextBox MinWidth="200" x:Name="TextboxQuantity" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Quantity of book" materialDesign:HintAssist.IsFloating="False"/>
         </Viewbox>
 
         <Grid Grid.Row="2" Margin="0,15,0,0">
@@ -29,8 +29,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="confirmBtn" Content="Thêm" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
-            <Button x:Name="cancelBtn" Content="Hủy" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
+            <Button x:Name="confirmBtn" Content="Add" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
+            <Button x:Name="cancelBtn" Content="Cancel" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
         </Grid>
     </Grid>
 </Page>

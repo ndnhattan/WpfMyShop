@@ -53,7 +53,7 @@ namespace WpfMyShop.pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Số đã nhập không hợp lệ");
+                MessageBox.Show("Invalid data");
             }
         }
 
@@ -254,7 +254,7 @@ namespace WpfMyShop.pages
             }
             else
             {
-                MessageBox.Show("File excel sai cấu trúc!");
+                MessageBox.Show("Excel file structure is wrong!");
             }
         }
 
@@ -284,7 +284,7 @@ namespace WpfMyShop.pages
             }
             else
             {
-                MessageBox.Show("File excel sai cấu trúc!");
+                MessageBox.Show("Excel file structure is wrong!");
             }
         }
     }

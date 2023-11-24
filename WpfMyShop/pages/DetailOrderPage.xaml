@@ -37,7 +37,7 @@
                 VerticalAlignment="Center"
                 Name="ProductNameTitle"
                 FontSize="25"
-                Text="Thông tin đơn hàng"/>
+                Text="Order page"/>
 
         </materialDesign:ColorZone>
 
@@ -48,7 +48,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="20" Margin="10,10,10,10">
-                <Run Text="Tên khách hàng: " FontWeight="Bold"/> <Run Text="{Binding CustomerName}"/>
+                <Run Text="Fullname of customer: " FontWeight="Bold"/> <Run Text="{Binding CustomerName}"/>
             </TextBlock>
 
             <!--<Button
@@ -60,16 +60,16 @@
         </Grid>
 
         <TextBlock Grid.Row="2" FontSize="20" Margin="10,10,10,10">
-            <Run Text="Ngày đặt hàng : " FontWeight="Bold"/> <Run Text="{Binding Date, Converter={StaticResource dateConverter}}"/>
+            <Run Text="Order creation date : " FontWeight="Bold"/> <Run Text="{Binding Date, Converter={StaticResource dateConverter}}"/>
         </TextBlock>
 
         <TextBlock Grid.Row="3" FontSize="20" Margin="10,10,10,10">
-            <Run Text="Mã giảm giá : " FontWeight="Bold"/> <Run Text="{Binding Discount, Converter={StaticResource discountConverter}}"/>
+            <Run Text="Discount: " FontWeight="Bold"/> <Run Text="{Binding Discount, Converter={StaticResource discountConverter}}"/>
         </TextBlock>
 
         <TextBlock 
             x:Name="TextblockListOrder" 
-            Text="Danh sách sản phẩm : "
+            Text="List of books: "
             Grid.Row="4"
             FontSize="20"
             Margin="10,10,10,10"
@@ -83,10 +83,10 @@
                 <ColumnDefinition Width="*" MaxWidth="100"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Tên sách" Grid.Column="0" FontWeight="Bold" Margin="10,0,0,0"/>
-            <TextBlock Text="Số lượng" Grid.Column="1" FontWeight="Bold" Margin="20,0,0,0"/>
-            <TextBlock Text="Giá bán" Grid.Column="2" FontWeight="Bold" Margin="10,0,0,0"/>
-            <TextBlock Text="Giá mua" Grid.Column="3" FontWeight="Bold" Margin="10,0,0,0"/>
+            <TextBlock Text="Name" Grid.Column="0" FontWeight="Bold" Margin="10,0,0,0"/>
+            <TextBlock Text="Quantity" Grid.Column="1" FontWeight="Bold" Margin="20,0,0,0"/>
+            <TextBlock Text="Cost" Grid.Column="2" FontWeight="Bold" Margin="10,0,0,0"/>
+            <TextBlock Text="Price" Grid.Column="3" FontWeight="Bold" Margin="10,0,0,0"/>
         </Grid>
 
         <Grid Grid.Row="6" >
@@ -132,7 +132,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="1" Margin="0,5,0,0">
-                <Run Text="Tổng: " FontWeight="Bold"/>
+                <Run Text="Total: " FontWeight="Bold"/>
                 <Run Text="{Binding Price}"/>
                 <Run Text="             "/>
                 <Run Text="{Binding Cost}"/>
@@ -144,8 +144,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="deleteBtn" Content="Xóa" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click" VerticalContentAlignment="Bottom"/>
-            <Button x:Name="EditBtn" Content="Sửa" Grid.Column="1" Width="150" Background="#3AA9AD" Click="EditBtn_Click" VerticalContentAlignment="Bottom"/>
+            <Button x:Name="deleteBtn" Content="Delete" Grid.Column="0" Width="150" Background="#3AA9AD" Click="DeleteBtn_Click" VerticalContentAlignment="Bottom"/>
+            <Button x:Name="EditBtn" Content="Edit" Grid.Column="1" Width="150" Background="#3AA9AD" Click="EditBtn_Click" VerticalContentAlignment="Bottom"/>
         </Grid>
     </Grid>
 </Page>
