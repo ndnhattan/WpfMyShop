@@ -86,13 +86,13 @@ namespace WpfMyShop
             if (nameServer.Equals("") || nameServer.Equals(null))
             {
 
-                //builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
-                builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
+                builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+                //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
             }
             else
             {
-                builder.DataSource = "DESKTOP-3A921M2";
-                //builder.DataSource = nameServer;
+                //builder.DataSource = "DESKTOP-3A921M2";
+                builder.DataSource = nameServer;
             }
 
             var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];
@@ -112,6 +112,7 @@ namespace WpfMyShop
             string connectionString = builder.ConnectionString;
             var connection = new SqlConnection(connectionString);
 
+                    loading.Visibility = Visibility.Visible;
             connection = await Task.Run(() => {
                 var _connection = new SqlConnection(connectionString);
 
@@ -123,12 +124,14 @@ namespace WpfMyShop
                 {
 
                     _connection = null;
+                    MessageBox.Show("Can not connect to server!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //MessageBox.Show("Can not connect to server!");
                 }
-
                 // Test khi chạy quá nhanh
                 //System.Threading.Thread.Sleep(3000);
                 return _connection;
             });
+                loading.Visibility = Visibility.Hidden;
 
             // save username, password if user check Remeber me
             if (connection != null)

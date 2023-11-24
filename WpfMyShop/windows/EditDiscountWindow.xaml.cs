@@ -42,13 +42,13 @@ namespace WpfMyShop.windows
                 int condition = int.Parse(TextboxCondition.Text);
             } catch(Exception ex)
             {
-                MessageBox.Show("Dữ liệu không hợp lệ");
+                MessageBox.Show("Invalid data");
                 return;
             }
 
             if (!TextboxCurrency.Text.Equals("%") && !TextboxCurrency.Text.Equals("VNĐ")) 
             {
-                MessageBox.Show("Dữ liệu không hợp lệ");
+                MessageBox.Show("Invalid data");
                 return;
             }
 
@@ -74,7 +74,7 @@ namespace WpfMyShop.windows
                     int index = discounts.IndexOf(discounts.FirstOrDefault(discount => discount.Id == id));
                     discounts[index] = EditedDiscount;
 
-                    MessageBox.Show("Sửa thành công");
+                    MessageBox.Show("Edit successfully");
                     DialogResult = true;
                 }
             }

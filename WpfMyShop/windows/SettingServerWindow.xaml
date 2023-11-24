@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMyShop.windows"
         mc:Ignorable="d"
-        Title="Setting Server" Height="400" Width="300">
+        Title="Setting Server" Height="400" Width="300" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -22,7 +22,7 @@
         <TextBox x:Name="textBoxServer" Grid.Row="3" FontSize="20" Margin="20 10 20 0" />
         <TextBlock Grid.Row="4" HorizontalAlignment="Left" FontSize="20" Text="Database:" FontWeight="SemiBold" Margin="20 0 10 0"/>
         <TextBox x:Name="textBoxDatabase" Grid.Row="5" FontSize="20" Margin="20 10 20 0" />
-        <Button Grid.Row="6" Width="100" Content="Accept" Margin="10 20 0 0" x:Name="btn_Accept" Click="btn_Accept_Click">
+        <Button Grid.Row="6" Width="100" Background="#3AB19B" Content="Accept" Margin="10 20 0 0" x:Name="btn_Accept" Click="btn_Accept_Click">
 
         </Button>
     </Grid>

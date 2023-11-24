@@ -53,11 +53,11 @@ namespace WpfMyShop.pages
             var filters = new List<object>()
             {
                 new {
-                    Label = "Tăng dần",
+                    Label = "Ascending",
                     Value = "dob ASC",
                 },
                 new {
-                    Label = "Giảm dần",
+                    Label = "Descending",
                     Value = "dob DESC",
                 },
             };

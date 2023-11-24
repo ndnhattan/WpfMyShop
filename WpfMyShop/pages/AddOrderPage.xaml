@@ -34,14 +34,14 @@
                 VerticalAlignment="Center"
                 Name="ProductNameTitle"
                 FontSize="25"
-                Text="Thêm đơn hàng"/>
+                Text="Add order page"/>
         </materialDesign:ColorZone>
  
         <TextBox Grid.Row="1" MinWidth="200" Margin="5,5,5,5" x:Name="textboxIDCustomer" FontSize="20"
-                 Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền ID khách hàng" materialDesign:HintAssist.IsFloating="False"/>
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="ID of customer" materialDesign:HintAssist.IsFloating="False"/>
 
         <TextBox Grid.Row="2" MinWidth="200" Margin="5,5,5,5" x:Name="textboxDate" FontSize="20" Text="{Binding Date, Converter={StaticResource dateConverter}}"
-         Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền ngày tạo đơn hàng" materialDesign:HintAssist.IsFloating="False"/>
+         Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Order creation date" materialDesign:HintAssist.IsFloating="False"/>
 
         <Grid Grid.Row="3" >
             <Grid.ColumnDefinitions>
@@ -87,7 +87,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Background="#3AA9AD" x:Name="btnChooseDiscount" Content="Chọn mã giảm giá" Click="btnChooseDiscount_Click" Grid.Column="0"/>
+            <Button Background="#3AA9AD" x:Name="btnChooseDiscount" Content="Choose discount" Click="btnChooseDiscount_Click" Grid.Column="0"/>
             <TextBox Margin="20,0,5,0" Grid.Column="1" x:Name="textboxDiscount" VerticalContentAlignment="Center" Focusable="False" Foreground="Black" />
         </Grid>
 
@@ -98,10 +98,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="confirmBtn" Content="Thêm" Grid.Column="0" Width="150" Background="#3AA9AD" Click="confirmBtn_Click"/>
-            <Button x:Name="addBookBtn" Content="Thêm sách" Grid.Column="1" Width="150" Background="Gray" Click="addBookBtn_Click"/>
-            <Button x:Name="deleteBookBtn" Content="Xóa sách" Grid.Column="2" Width="150" Background="Gray" Click="deleteBookBtn_Click"/>
-            <Button x:Name="cancelBtn" Content="Hủy" Grid.Column="3" Width="150" Background="#3AA9AD" Click="cancelBtn_Click"/>
+            <Button x:Name="confirmBtn" Content="Add" Grid.Column="0" Width="150" Background="#3AA9AD" Click="confirmBtn_Click"/>
+            <Button x:Name="addBookBtn" Content="Add book" Grid.Column="1" Width="150" Background="Gray" Click="addBookBtn_Click"/>
+            <Button x:Name="deleteBookBtn" Content="Delete book" Grid.Column="2" Width="150" Background="Gray" Click="deleteBookBtn_Click"/>
+            <Button x:Name="cancelBtn" Content="Cancel" Grid.Column="3" Width="150" Background="#3AA9AD" Click="cancelBtn_Click"/>
         </Grid>
 
     </Grid>

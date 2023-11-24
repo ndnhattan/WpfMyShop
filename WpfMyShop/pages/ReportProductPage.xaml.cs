@@ -295,7 +295,7 @@ namespace WpfMyShop.pages
             {
                 if(_books.Count == 0)
                 {
-                    MessageBox.Show("Không có cuốn sách nào bán được trong tuần");
+                    MessageBox.Show("No books were sold during the week");
                     return;
                 }
                 totalProductInTime(typeTime, _books[index]);
@@ -312,14 +312,14 @@ namespace WpfMyShop.pages
                         Stroke = Brushes.Red,
                         Fill = Brushes.Yellow,
                         StrokeThickness = 2,
-                        Title = "Số lượng sách theo tuần"
+                        Title = "Number of books per week"
                     }
                 };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Thứ",
+                    Title = "Day",
                     Labels = new List<string> { "2", "3", "4", "5", "6", "7", "CN" }
                 });
                 chart.AxisY.Add(new Axis()
@@ -340,7 +340,7 @@ namespace WpfMyShop.pages
             {
                 if (_books.Count == 0)
                 {
-                    MessageBox.Show("Không bán được cuốn sách nào trong tháng");
+                    MessageBox.Show("No books sold during the month");
                     return;
                 }
                 totalProductInTime(typeTime, _books[index]);
@@ -357,14 +357,14 @@ namespace WpfMyShop.pages
                         Stroke = Brushes.Red,
                         Fill = Brushes.Yellow,
                         StrokeThickness = 2,
-                        Title = "Số lượng sách theo tháng"
+                        Title = "Number of books by month"
                     }
                 };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Ngày",
+                    Title = "Date",
                     Labels = new List<string> { "1", "2", "3", "4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
                     "16", "17", "18", "19", "20","21", "22", "23", "24","25", "26", "27", "28", "29", "30","31" }
                 });
@@ -386,7 +386,7 @@ namespace WpfMyShop.pages
             {
                 if (_books.Count == 0)
                 {
-                    MessageBox.Show("Không bán được cuốn sách nào trong năm");
+                    MessageBox.Show("No books sold during the year");
                     return;
                 }
                 totalProductInTime(typeTime, _books[index]);
@@ -403,14 +403,14 @@ namespace WpfMyShop.pages
                         Stroke = Brushes.Red,
                         Fill = Brushes.Yellow,
                         StrokeThickness = 2,
-                        Title = "Số lượng sách theo năm"
+                        Title = "Number of books by year"
                     }
                 };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Tháng",
+                    Title = "Month",
                     Labels = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }
                 });
                 chart.AxisY.Add(new Axis()
@@ -432,7 +432,7 @@ namespace WpfMyShop.pages
             {
                 if (_books.Count == 0)
                 {
-                    MessageBox.Show("Không bán được cuốn sách nào trong thời gian này");
+                    MessageBox.Show("No books sold during this time");
                     return;
                 }
                 totalProductInTime(typeTime, _books[index]);
@@ -449,14 +449,14 @@ namespace WpfMyShop.pages
                         Stroke = Brushes.Red,
                         Fill = Brushes.Yellow,
                         StrokeThickness = 2,
-                        Title = $"Số lượng sách từ ngày {_startDate} đến ngày {_endDate}"
+                        Title = $"Quantity of book from {_startDate} to {_endDate}"
                     }
                 };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Ngày",
+                    Title = "Date",
                     Labels = new List<string> { "1", "2", "3", "4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
                     "16", "17", "18", "19", "20","21", "22", "23", "24","25", "26", "27", "28", "29", "30","31" }
                 });

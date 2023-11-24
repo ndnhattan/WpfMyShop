@@ -63,13 +63,13 @@ namespace WpfMyShop
                     int index = books.IndexOf(books.FirstOrDefault(book => book.Id == id));
                     books[index] = EditedBook;
 
-                    MessageBox.Show("Sửa thành công");
+                    MessageBox.Show("Edit successfully");
                     DialogResult = true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Sửa thất bại");
+                MessageBox.Show("Edit failed");
                 DialogResult = false;
             }
         }

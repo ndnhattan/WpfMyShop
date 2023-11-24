@@ -415,7 +415,7 @@ namespace WpfMyShop.pages
             }
             else
             {
-                MessageBox.Show("Nhap lai kieu du lieu");
+                MessageBox.Show("Enter the data type again");
             }
 
         }
@@ -491,7 +491,7 @@ namespace WpfMyShop.pages
         {
             if (typeChart == "" || typeTime == "")
             {
-                MessageBox.Show("Chọn đầy đủ dữ liệu");
+                MessageBox.Show("Select full data");
                 return;
             }
             if (typeTime == "WEEK")
@@ -511,14 +511,14 @@ namespace WpfMyShop.pages
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
                     StrokeThickness = 2,
-                    Title = "Doanh thu theo tuần"
+                    Title = "Revenue by week"
                 }
             };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Thứ",
+                    Title = "Day",
                     Labels = new List<string> { "2", "3", "4", "5", "6", "7", "CN" }
                 });
                 chart.AxisY.Add(new Axis()
@@ -553,14 +553,14 @@ namespace WpfMyShop.pages
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
                     StrokeThickness = 2,
-                    Title = "Doanh thu theo tháng"
+                    Title = "Revenue by month"
                 }
             };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Ngày",
+                    Title = "Day",
                     Labels = new List<string> { "1", "2", "3", "4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
                     "16", "17", "18", "19", "20","21", "22", "23", "24","25", "26", "27", "28", "29", "30","31" }
                 });
@@ -595,14 +595,14 @@ namespace WpfMyShop.pages
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
                     StrokeThickness = 2,
-                    Title = "Doanh thu theo năm"
+                    Title = "Revenue by year"
                 }
             };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Tháng",
+                    Title = "Month",
                     Labels = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }
                 });
                 chart.AxisY.Add(new Axis()
@@ -625,7 +625,7 @@ namespace WpfMyShop.pages
                 _startDate = startDate.SelectedDate;
                 _endDate = endDate.SelectedDate;
                 if (_startDate == null || _endDate == null) {
-                    MessageBox.Show("Nhập đầy đủ thông tin");
+                    MessageBox.Show("Please enter entire data");
                     return;
                 }
                 ChartContainer.Children.Clear();
@@ -633,7 +633,7 @@ namespace WpfMyShop.pages
                 totalFinanceInTime("TIME", typeChart);
                 if (_books.Count==0)
                 {
-                    MessageBox.Show("Thời gian này không bán được cuốn sách nào");
+                    MessageBox.Show("During this time, no books were sold");
                     return;
                 }
                 ChartValues<int> chartValues = new ChartValues<int>(_bookTemp);
@@ -648,14 +648,14 @@ namespace WpfMyShop.pages
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
                     StrokeThickness = 2,
-                    Title = $"Doanh thu từ ngày {_startDate} đến ngày {_endDate}"
+                    Title = $"Revenue from {_startDate} to {_endDate}"
                 }
             };
                 chart.AxisX.Add(new Axis()
                 {
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
-                    Title = "Ngày",
+                    Title = "Date",
                     Labels = new List<string> { "1", "2", "3", "4","5", "6", "7", "8", "9", "10",
                      }
 

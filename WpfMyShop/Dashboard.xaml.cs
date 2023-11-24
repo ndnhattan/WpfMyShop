@@ -97,7 +97,7 @@ namespace WpfMyShop
             try
             {
                 selectedIndex = int.Parse(ConfigurationManager.AppSettings["SelectedIndex"]);
-            } catch(Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+            } catch(Exception ex) { }
 
             if (location!=null && location.Length>0)
             {
@@ -172,6 +172,14 @@ namespace WpfMyShop
         private void customerBtn_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new CustomerPage();
+        }
+
+        private void logout_btnClick(object sender, RoutedEventArgs e)
+        {
+            StartupWindow screen = new StartupWindow();
+            screen.Show();
+
+            this.Close();
         }
     }
 }

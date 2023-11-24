@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,12 +28,23 @@ namespace WpfMyShop.windows
         private void btn_Accept_Click(object sender, RoutedEventArgs e)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["NameServer"].Value = $".\\{textBoxServer.Text}";
+            config.AppSettings.Settings["NameServer"].Value = $"{textBoxServer.Text}";
             config.AppSettings.Settings["NameDatabase"].Value = textBoxDatabase.Text;
             config.Save(ConfigurationSaveMode.Minimal);
 
             ConfigurationManager.RefreshSection("appSettings");
+
+
+       
+
+            ConfigurationManager.RefreshSection("appSettings");
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            textBoxServer.Text = ConfigurationManager.AppSettings["NameServer"];
+            textBoxDatabase.Text = ConfigurationManager.AppSettings["NameDatabase"];
         }
     }
 }
