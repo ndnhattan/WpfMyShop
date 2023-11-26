@@ -112,7 +112,7 @@ namespace WpfMyShop
             string connectionString = builder.ConnectionString;
             var connection = new SqlConnection(connectionString);
 
-                    loading.Visibility = Visibility.Visible;
+            loading.Visibility = Visibility.Visible;
             connection = await Task.Run(() => {
                 var _connection = new SqlConnection(connectionString);
 
@@ -131,7 +131,7 @@ namespace WpfMyShop
                 //System.Threading.Thread.Sleep(3000);
                 return _connection;
             });
-                loading.Visibility = Visibility.Hidden;
+            loading.Visibility = Visibility.Hidden;
 
             // save username, password if user check Remeber me
             if (connection != null)
