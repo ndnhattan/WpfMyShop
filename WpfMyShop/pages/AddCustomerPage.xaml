@@ -24,8 +24,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="-10, -10, -10, 0">
@@ -129,7 +128,7 @@ Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                 <TextBox x:Name="TextboxAddress" Text="{Binding Address}" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.IsFloating="False" materialDesign:HintAssist.Hint="47 Xuân Diệu, Quận 1, TP. HCM" FontSize="30"/>
             </Viewbox>
         </Grid>
-        <Grid Grid.Row="10" Margin="0,15,0,0">
+        <Grid Grid.Row="7" Margin="0,15,0,0" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

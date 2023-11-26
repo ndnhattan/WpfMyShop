@@ -25,6 +25,7 @@ using Microsoft.Identity.Client;
 using WpfMyShop.model;
 using WpfMyShop.models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Separator = LiveCharts.Wpf.Separator;
 
 namespace WpfMyShop.pages
 {
@@ -506,7 +507,6 @@ namespace WpfMyShop.pages
                 new ColumnSeries()
                  {
                     ColumnPadding=5,
-                    MaxColumnWidth=20,
                     Values = chartValues,
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
@@ -519,7 +519,11 @@ namespace WpfMyShop.pages
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
                     Title = "Day",
-                    Labels = new List<string> { "2", "3", "4", "5", "6", "7", "CN" }
+                    Labels = new List<string> { "2", "3", "4", "5", "6", "7", "CN" },
+                    Separator = new Separator()
+                    {
+                        Step = 1, // Set the interval between displayed values
+                    }
                 });
                 chart.AxisY.Add(new Axis()
                 {
@@ -548,7 +552,6 @@ namespace WpfMyShop.pages
             new ColumnSeries()
                  {
                      ColumnPadding=5,
-                    MaxColumnWidth=20,
                     Values = chartValues,
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
@@ -562,7 +565,11 @@ namespace WpfMyShop.pages
                     FontWeight = FontWeights.Bold,
                     Title = "Day",
                     Labels = new List<string> { "1", "2", "3", "4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
-                    "16", "17", "18", "19", "20","21", "22", "23", "24","25", "26", "27", "28", "29", "30","31" }
+                    "16", "17", "18", "19", "20","21", "22", "23", "24","25", "26", "27", "28", "29", "30","31" },
+                    Separator = new Separator()
+                    {
+                        Step = 1, // Set the interval between displayed values
+                    }
                 });
                 chart.AxisY.Add(new Axis()
                 {
@@ -590,7 +597,6 @@ namespace WpfMyShop.pages
             new ColumnSeries()
                  {
                     ColumnPadding=5,
-                     MaxColumnWidth=20,
                     Values = chartValues,
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
@@ -603,7 +609,11 @@ namespace WpfMyShop.pages
                     Foreground = Brushes.Black,
                     FontWeight = FontWeights.Bold,
                     Title = "Month",
-                    Labels = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }
+                    Labels = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" },
+                    Separator = new Separator()
+                    {
+                        Step = 1, // Set the interval between displayed values
+                    }
                 });
                 chart.AxisY.Add(new Axis()
                 {
@@ -643,7 +653,6 @@ namespace WpfMyShop.pages
             new ColumnSeries()
                  {
                     ColumnPadding=5,
-                     MaxColumnWidth=20,
                     Values = chartValues,
                     Stroke = Brushes.Red,
                     Fill = Brushes.Yellow,
@@ -657,7 +666,11 @@ namespace WpfMyShop.pages
                     FontWeight = FontWeights.Bold,
                     Title = "Date",
                     Labels = new List<string> { "1", "2", "3", "4","5", "6", "7", "8", "9", "10",
-                     }
+                     },
+                    Separator = new Separator()
+                    {
+                        Step = 1, // Set the interval between displayed values
+                    }
 
                 });
                 chart.AxisY.Add(new Axis()
