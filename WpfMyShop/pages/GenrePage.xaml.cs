@@ -115,7 +115,7 @@ namespace WpfMyShop.pages
             var genre = (Genre) genreListView.SelectedItem;
             var sql = """
                 delete from Genres
-                where name = @Name;
+                where name = @Name;5
                 """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
             command.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = genre.Id;
