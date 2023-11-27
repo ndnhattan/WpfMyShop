@@ -2,10 +2,12 @@
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.Data.SqlClient;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -285,6 +287,74 @@ namespace WpfMyShop.pages
             else
             {
                 MessageBox.Show("Excel file structure is wrong!");
+            }
+        }
+
+        private void BackUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            string DatabaseName = ConfigurationManager.AppSettings["NameDatabase"];
+            string relative = "BackUp";
+            string folder = AppDomain.CurrentDomain.BaseDirectory;
+            string absolute = $"{folder}{relative}";
+            var sql = """
+                    BACKUP DATABASE @DatabaseName TO DISK = @Backup
+                """;
+            var command = new SqlCommand(sql, DB.Instance.Connection);
+            command.Parameters.Add("@Backup", System.Data.SqlDbType.NVarChar).Value = absolute;
+            command.Parameters.Add("@DatabaseName", System.Data.SqlDbType.NVarChar).Value = DatabaseName;
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Success");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            txtLocation.Text = absolute;
+
+        }
+
+        private void RestoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            string DatabaseName = ConfigurationManager.AppSettings["NameDatabase"];
+            try
+            {
+                string locationRestore = txtLocationRestore.Text;
+                if (!File.Exists(locationRestore) || locationRestore=="")
+                {
+                    MessageBox.Show("Don't exit this path.");
+                    return;
+                }
+                var sql1 = $"""
+                    ALTER DATABASE {DatabaseName} SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+                """;
+                var command1 = new SqlCommand(sql1, DB.Instance.Connection);
+                command1.ExecuteNonQuery();
+
+
+                var sql2 = $"""
+                    USE MASTER RESTORE DATABASE {DatabaseName} FROM DISK=@Restore WITH REPLACE
+                """;
+                //string relative = "BackUp";
+                //string folder = AppDomain.CurrentDomain.BaseDirectory;
+                //string absolute = $"{folder}{relative}";
+                var command2 = new SqlCommand(sql2, DB.Instance.Connection);
+                command2.Parameters.Add("@Restore", System.Data.SqlDbType.NVarChar).Value = locationRestore;
+                command2.ExecuteNonQuery();
+                
+                var sql3 = $"""
+                    ALTER DATABASE {DatabaseName} SET MULTI_USER
+                """;
+                var command3 = new SqlCommand(sql3, DB.Instance.Connection);
+                command3.ExecuteNonQuery();
+
+                MessageBox.Show("Restore sucess!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

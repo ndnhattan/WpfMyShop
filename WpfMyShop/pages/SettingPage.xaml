@@ -5,14 +5,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfMyShop.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
+      Background="White"
       Title="SettingPage">
 
     <Canvas>
         <TextBlock Text="Items per page: " Canvas.Left="84" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" FontSize="25" />
         <TextBox x:Name="TextBoxPaging" Canvas.Left="275" Canvas.Top="66" HorizontalAlignment="Left" Height="44" VerticalAlignment="Center" Width="70" FontSize="25" BorderBrush="Black" BorderThickness="1"/>
-        <Button x:Name="changePagingButton" Content="Change" Click="changePagingButton_Click" Canvas.Left="375" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Height="44"/>
+        <Button x:Name="changePagingButton" Content="Change" Click="changePagingButton_Click" Canvas.Left="375" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Height="44" Width="126"/>
         <TextBlock Text="Import data from Excel: " Canvas.Left="84" Canvas.Top="135" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" FontSize="25" />
-        <Button x:Name="importBtn" Content="Import" Click="importBtn_Click" Canvas.Left="375" Canvas.Top="135" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Height="44" Width="118"/>
+        <Button x:Name="importBtn" Content="Import" Click="importBtn_Click" Canvas.Left="375" Canvas.Top="135" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Height="44" Width="126"/>
+        <Button x:Name="BackUpBtn" Content="Back Up" Click="BackUpButton_Click" Canvas.Left="376" Canvas.Top="218" FontSize="25" Height="44" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Restore" Content="Restore" Click="RestoreButton_Click" Canvas.Left="376" Canvas.Top="290" FontSize="25" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Width="125"/>
+        <TextBox x:Name="txtLocation" d:Text=".//D" Canvas.Left="84" Canvas.Top="218" Width="264" Height="44" FontSize="17" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Bottom"/>
+        <TextBox x:Name="txtLocationRestore" Text="Nhập đường dẫn" FontStyle="Italic" Foreground="DarkGray" Canvas.Left="84" Canvas.Top="290" Width="264" Height="44" FontSize="17" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
     </Canvas>
 </Page>

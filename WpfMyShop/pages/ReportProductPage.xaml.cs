@@ -225,25 +225,32 @@ namespace WpfMyShop.pages
         }
         private void WeekButton_Click(object sender, RoutedEventArgs e)
         {
-            btnWeek.Background = Brushes.Green;
+            btnWeek.Background = Brushes.DarkCyan;
             btnMonth.Background = Brushes.Gray;
             btnYear.Background = Brushes.Gray;
             btnTime.Background = Brushes.Gray;
+            textTime.Visibility = Visibility.Hidden;
             typeTime = "WEEK";
             loadAllBooks(typeTime);
+            if (_books.Count == 0)
+            {
+                MessageBox.Show("Don't have any book been sold in week");
+                return;
+            }
         }
 
         private void MonthButton_Click(object sender, RoutedEventArgs e)
         {
             btnWeek.Background = Brushes.Gray;
-            btnMonth.Background = Brushes.Green;
+            btnMonth.Background = Brushes.DarkCyan;
             btnYear.Background = Brushes.Gray;
             btnTime.Background = Brushes.Gray;
+            textTime.Visibility = Visibility.Hidden;
             typeTime = "MONTH";
             loadAllBooks("MONTH");
             if (_books.Count == 0)
             {
-                MessageBox.Show("Không bán được cuốn sách nào trong tháng");
+                MessageBox.Show("Don't have any book been sold in month");
                 return;
             }
         }
@@ -252,11 +259,17 @@ namespace WpfMyShop.pages
         {
             btnWeek.Background = Brushes.Gray;
             btnMonth.Background = Brushes.Gray;
-            btnYear.Background = Brushes.Green;
+            btnYear.Background = Brushes.DarkCyan;
             btnTime.Background = Brushes.Gray;
+            textTime.Visibility = Visibility.Hidden;
             typeTime = "YEAR";
             loadAllBooks(typeTime);
-           
+            if (_books.Count == 0)
+            {
+                MessageBox.Show("Don't have any book been sold in year");
+                return;
+            }
+
         }
 
         private void TimeButton_Click(object sender, RoutedEventArgs e)
@@ -264,9 +277,14 @@ namespace WpfMyShop.pages
             btnWeek.Background = Brushes.Gray;
             btnMonth.Background = Brushes.Gray;
             btnYear.Background = Brushes.Gray;
-            btnTime.Background = Brushes.Green;
+            btnTime.Background = Brushes.DarkCyan;
             typeTime = "TIME";
             textTime.Visibility = Visibility.Visible;
+            if (_books.Count == 0)
+            {
+                MessageBox.Show("Don't have any book been sold in time");
+                return;
+            }
         }
 
         private void startDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

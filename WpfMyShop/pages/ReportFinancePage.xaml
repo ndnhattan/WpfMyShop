@@ -84,7 +84,6 @@
             </Button>
             <StackPanel x:Name="textTime" Orientation="Vertical" Margin="10" HorizontalAlignment="Center" Visibility="Hidden">
                 <DatePicker
-                    SelectedDateChanged="startDate_SelectedDateChanged"
                     Name="startDate"
                     Width="100"
                     materialDesign:HintAssist.Hint="Từ ngày"
@@ -93,7 +92,6 @@
                     PreviewTextInput="DatePicker_PreviewTextInput"/>
                 <TextBlock Text="-" Margin="8 0 8 0"/>
                 <DatePicker
-                    SelectedDateChanged="endDate_SelectedDateChanged"
                     Name="endDate"
                       Width="100"
                       materialDesign:HintAssist.Hint="Đến ngày"
@@ -104,12 +102,11 @@
             <Button
                 Foreground="White"
              Width="130"
-             Height="25"
+             Height="30"
               Content="Apply"
              Name="applyReportBtn"
               Click="applyReportBtn_Click"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
                 ToolTip="Resource name: MaterialDesignRaisedLightButton" />
         </StackPanel>
         <!--Right main-->
