@@ -56,9 +56,10 @@ namespace WpfMyShop.pages
             // delete in database
             Book book = books[index];
             string sql = """
-                select id from Books where id = @id;
-                delete from Books where id = @id;
-             """;
+                    select id from Books where id = @id;
+                    delete from Books where id = @id;
+                    delete from Order_Books where book_id = @id;
+                 """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
             command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = book.Id;
 

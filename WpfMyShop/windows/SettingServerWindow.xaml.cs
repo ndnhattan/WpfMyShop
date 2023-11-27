@@ -34,9 +34,6 @@ namespace WpfMyShop.windows
 
             ConfigurationManager.RefreshSection("appSettings");
 
-
-       
-
             ConfigurationManager.RefreshSection("appSettings");
             this.Close();
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -427,14 +428,14 @@ namespace WpfMyShop.pages
             btnWeek.Background = Brushes.Gray;
             btnMonth.Background = Brushes.Gray;
             btnYear.Background = Brushes.Gray;
-            btnTime.Background = Brushes.Green;
+            btnTime.Background = Brushes.DarkCyan;
         }
 
         private void WeekButton_Click(object sender, RoutedEventArgs e)
         {
             typeTime = "WEEK";
             textTime.Visibility = Visibility.Hidden;
-            btnWeek.Background = Brushes.Green;
+            btnWeek.Background = Brushes.DarkCyan;
             btnMonth.Background = Brushes.Gray;
             btnYear.Background = Brushes.Gray;
             btnTime.Background = Brushes.Gray;
@@ -445,7 +446,7 @@ namespace WpfMyShop.pages
             typeTime = "MONTH";
             textTime.Visibility = Visibility.Hidden;
             btnWeek.Background = Brushes.Gray;
-            btnMonth.Background = Brushes.Green;
+            btnMonth.Background = Brushes.DarkCyan;
             btnYear.Background = Brushes.Gray;
             btnTime.Background = Brushes.Gray;
         }
@@ -456,36 +457,22 @@ namespace WpfMyShop.pages
             textTime.Visibility = Visibility.Hidden;
             btnWeek.Background = Brushes.Gray;
             btnMonth.Background = Brushes.Gray;
-            btnYear.Background = Brushes.Green;
+            btnYear.Background = Brushes.DarkCyan;
             btnTime.Background = Brushes.Gray;
         }
 
         private void FinanceButton_click(object sender, RoutedEventArgs e)
         {
             typeChart = "FINANCE";
-            btnFinance.Background = Brushes.Green;
+            btnFinance.Background = Brushes.DarkCyan;
             btnProfit.Background = Brushes.Gray;
         }
 
         private void ProfitButton_click(object sender, RoutedEventArgs e)
         {
             typeChart = "PROFIT";
-            btnFinance.Background = Brushes.Gray;
-            btnProfit.Background = Brushes.Green;
-        }
-
-        private void endDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //_startDate = startDate.SelectedDate;
-            //_endDate = endDate.SelectedDate;
-            //loadAllBooksTime();
-        }
-
-        private void startDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //_startDate = startDate.SelectedDate;
-            //_endDate = endDate.SelectedDate;
-            //loadAllBooksTime();
+            btnFinance.Background = Brushes.Gray;       
+            btnProfit.Background = Brushes.DarkCyan;
         }
 
         private void applyReportBtn_Click(object sender, RoutedEventArgs e)
