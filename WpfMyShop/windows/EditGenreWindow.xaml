@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMyShop.windows"
         mc:Ignorable="d"
-        Title="EditGenreWindow" Height="350" Width="300">
+        Title="EditGenreWindow" Height="350" Width="300" Loaded="Window_Loaded">
     <Canvas>
         <TextBlock Text="New Genre: " Canvas.Left="75" Canvas.Top="100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox d:Text="Xã hội" Canvas.Left="155" Canvas.Top="96"/>
+        <TextBox d:Text="Xã hội" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="155" Canvas.Top="96"/>
         <TextBlock Text="New Description: " Canvas.Left="46" Canvas.Top="141" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox Text="Việt Nam hiện nay" Canvas.Left="155" Canvas.Top="136"/>
+        <TextBox d:Text="Việt Nam hiện nay" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="155" Canvas.Top="136"/>
+        <Button Content="OK" IsDefault="True"  Canvas.Left="88" Canvas.Top="188"  Click="OkButton_Click">
+        </Button>
+        <Button Content="Cancel" Canvas.Left="168" IsCancel="True" Canvas.Top="188" RenderTransformOrigin="1.363,0.468" HorizontalAlignment="Center" VerticalAlignment="Top">
+        </Button>
     </Canvas>
 </Window>

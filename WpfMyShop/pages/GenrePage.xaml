@@ -104,7 +104,7 @@ ClipToBounds="True">
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Button Width="100" Grid.Column="0" Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_DeleteGenre" Click="btn_DeleteGenre_Click"/>
-                            <Button Width="100" Grid.Column="1" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_EditGenre" Click="btn_EditGenre_Click" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
+                            <Button Width="100" Grid.Column="1" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="btn_EditGenre" Click="btn_EditGenre_Click" />
 
 
                         </Grid>

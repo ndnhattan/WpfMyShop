@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Data.SqlClient;
+using WpfMyShop.model;
+using WpfMyShop.models;
 
 namespace WpfMyShop.windows
 {
@@ -19,9 +22,22 @@ namespace WpfMyShop.windows
     /// </summary>
     public partial class EditGenreWindow : Window
     {
-        public EditGenreWindow()
+        public Genre editGenre {  get; set; }
+        public EditGenreWindow(Genre info)
         {
             InitializeComponent();
+            editGenre = (Genre)info.Clone();
+        }
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            DialogResult = true;
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = editGenre;
         }
     }
 }
