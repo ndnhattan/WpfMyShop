@@ -47,7 +47,7 @@ namespace WpfMyShop
                 {
                     this.WindowState = WindowState.Normal;
                     this.Width = 1080;
-                    this.Height=720;
+                    this.Height=800;
                     IsMaximized = false;
                 }
                 else
@@ -97,7 +97,7 @@ namespace WpfMyShop
             try
             {
                 selectedIndex = int.Parse(ConfigurationManager.AppSettings["SelectedIndex"]);
-            } catch(Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+            } catch(Exception ex) { }
 
             if (location!=null && location.Length>0)
             {
@@ -125,12 +125,43 @@ namespace WpfMyShop
                     {
                         MainScreen.Content = new DashboardPage();
                     }
-                    else if (page.Equals("DiscountPage") || page.Equals("AddDiscountPage"))
+                    else if (page.Equals("AddCustomerPage") || page.Equals("CustomerPage") || page.Equals("DetailCustomerPage"))
                     {
-                        MainScreen.Content = new DiscountPage();
+                        MainScreen.Content = new CustomerPage();
                     }
+                    else if (page.Equals("ReportFinancePage"))
+                    {
+                        MainScreen.Content = new ReportFinancePage();
+                    }
+                    else if (page.Equals("ReportProductPage"))
+                    {
+                        MainScreen.Content = new ReportProductPage();
+                    }
+                    else if (page.Equals("TopSellingProductPage"))
+                    {
+                        MainScreen.Content = new TopSellingProductPage();
+                    }
+                    //else if (page.Equals("ReportPage"))
+                    //{
+                    //    MainScreen.Content = new ReportPage();
+                    //}
                 }
             }
+        }
+
+        private void report_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new ReportFinancePage();
+        }
+
+        private void reportProduct_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new ReportProductPage();
+        }
+
+        private void TopSellingProduct_Click(object sender, RoutedEventArgs e)
+        {
+            MainScreen.Content = new TopSellingProductPage();
         }
 
         private void discountBtn_Click(object sender, RoutedEventArgs e)
@@ -141,6 +172,14 @@ namespace WpfMyShop
         private void customerBtn_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Content = new CustomerPage();
+        }
+
+        private void logout_btnClick(object sender, RoutedEventArgs e)
+        {
+            StartupWindow screen = new StartupWindow();
+            screen.Show();
+
+            this.Close();
         }
     }
 }

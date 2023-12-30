@@ -1,5 +1,4 @@
-﻿using Azure;
-using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,19 +51,19 @@ namespace WpfMyShop.pages
             var filters = new List<object>()
             {
                 new {
-                    Label = "Mới nhất",
+                    Label = "Newest",
                     Value = "new",
                 },
                 new {
-                    Label = "Bán chạy",
+                    Label = "Best-seller",
                     Value = "best seller",
                 },
                 new {
-                    Label = "Giá thấp -> cao",
+                    Label = "low -> high price",
                     Value = "price ASC",
                 },
                 new {
-                    Label = "Giá cao -> thấp",
+                    Label = "high -> low price",
                     Value = "price DESC",
                 },
             };

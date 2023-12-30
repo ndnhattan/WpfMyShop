@@ -1,6 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,9 +56,10 @@ namespace WpfMyShop.pages
             // delete in database
             Book book = books[index];
             string sql = """
-                select id from Books where id = @id;
-                delete from Books where id = @id;
-             """;
+                    select id from Books where id = @id;
+                    delete from Books where id = @id;
+                    delete from Order_Books where book_id = @id;
+                 """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
             command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = book.Id;
 
@@ -68,7 +69,7 @@ namespace WpfMyShop.pages
                 // delete data in bindingList
                 Book foundBook = books.FirstOrDefault(book => book.Id == id);
                 books.Remove(foundBook);
-                MessageBox.Show("Xóa thành công");
+                MessageBox.Show("Delete successfully");
 
                 // Go back previous page
                 if (NavigationService.CanGoBack)
@@ -79,7 +80,7 @@ namespace WpfMyShop.pages
             else
             {
                 // delete fail
-                MessageBox.Show("Xóa thất bại");
+                MessageBox.Show("Delete failed");
             }
         }
 

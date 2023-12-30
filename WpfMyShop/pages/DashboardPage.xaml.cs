@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using WpfMyShop.model;
 using WpfMyShop.models;
 
@@ -53,8 +53,8 @@ namespace WpfMyShop.pages
         public void loadTopStockBook()
         {
             var sql = """
-                select top(5)name,stock,image_url from Books
-                order by stock
+                select top(10)name,sold,image_url from Books
+                order by sold DESC
                 """;
             var command = new SqlCommand(sql, DB.Instance.Connection);
             _books = new BindingList<Book>();
@@ -70,7 +70,7 @@ namespace WpfMyShop.pages
                     //int price = (int)reader["price"];
                     //int promo_price = (int)reader["promo_price"];
                     //int sold = (int)reader["sold"];
-                    int stock = (int)reader["stock"];
+                    int sold = (int)reader["sold"];
                     //int cost = (int)reader["cost"];
                     //int genre_id = (int)reader["genre_id"];
 
@@ -85,7 +85,8 @@ namespace WpfMyShop.pages
                         //PromoPrice = promo_price,
                         //Sold = sold,
                         //Cost = cost,
-                        Stock = stock,
+                        //Stock = stock,
+                        Sold = sold
                         //GenreId = genre_id
                     };
                     //count = (int)reader["Total"];

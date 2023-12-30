@@ -13,9 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using WpfMyShop.model;
 using WpfMyShop.models;
+using WpfMyShop.utils;
+using WpfMyShop.windows;
 
 namespace WpfMyShop.pages
 {
@@ -69,11 +71,7 @@ namespace WpfMyShop.pages
         }
 
 
-        private void GenrePage_Loaded(object sender, RoutedEventArgs e)
-        {
-            loadAllGenres();
-        }
-
+        
 
         private void btn_Accept_Click(object sender, RoutedEventArgs e)
         {
@@ -106,13 +104,12 @@ namespace WpfMyShop.pages
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Add failed");
                 }
                 genreListView.ItemsSource = _genres;
             }
 
         }
-
 
         private void btn_DeleteGenre_Click(object sender, RoutedEventArgs e)
         {
@@ -128,26 +125,35 @@ namespace WpfMyShop.pages
             command.ExecuteNonQuery();
             _genres.Remove(genre);
         }
+        Genre _backup;
         private void btn_EditGenre_Click(object sender, RoutedEventArgs e)
         {
-            //int index = genreListView.SelectedIndex;
-            //_genres[index].Name = textBoxGenre.Text;
-            //_genres[index].Description = textBoxGenreDescription.Text;
-            //var sql = """
-            //    update from Genres 
-            //    set name=@Name,description=@Description
-            //    where id = @id;
-            //    """;
-            //var command = new SqlCommand(sql, DB.Instance.Connection);
-            //command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = index;
-            //command.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = textBoxGenre.Text;
-            //command.Parameters.Add("@Description", System.Data.SqlDbType.NVarChar).Value = textBoxGenreDescription.Text;
-            //command.ExecuteNonQuery();
-
+            var genre = (Genre)genreListView.SelectedItem;
+            _backup = (Genre)genre.Clone();
+            var screen = new EditGenreWindow(genre);
+            if (screen.ShowDialog()!.Value == true)
+            {
+                screen.editGenre.CopyProperties(genre);
+                var sql = """
+                update Genres
+                set name=@Name
+                where name = @oldName;
+                """;
+                var command = new SqlCommand(sql, DB.Instance.Connection);
+                //command.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = editGenre.Id;
+                command.Parameters.Add("@Name", System.Data.SqlDbType.NVarChar).Value = genre.Name;
+                command.Parameters.Add("@oldName", System.Data.SqlDbType.NVarChar).Value = _backup.Name;
+                command.Parameters.Add("@Description", System.Data.SqlDbType.NVarChar).Value = genre.Description;
+                command.ExecuteNonQuery();
+            }
+            else
+            {
+                _backup.CopyProperties(genre);
+            }
 
         }
 
-        private void Genre_loaded(object sender, RoutedEventArgs e)
+        private void GenrePage_loaded(object sender, RoutedEventArgs e)
         {
             loadAllGenres();
         }

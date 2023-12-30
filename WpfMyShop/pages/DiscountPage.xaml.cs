@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,12 +86,12 @@ namespace WpfMyShop.pages
             if (id > 0) // delete in db successfully
             {
                 _discounts.Remove((Discount)discount);
-                MessageBox.Show("Xóa thành công");
+                MessageBox.Show("Delete successfully");
             }
             else
             {
                 // delete fail
-                MessageBox.Show("Xóa thất bại");
+                MessageBox.Show("Delete failed");
             }
         }
 

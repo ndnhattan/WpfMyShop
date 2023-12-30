@@ -17,7 +17,7 @@ namespace WpfMyShop.models
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            return MemberwiseClone();
         }
     }
 }

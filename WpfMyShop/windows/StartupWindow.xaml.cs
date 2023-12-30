@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,6 +18,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfMyShop.model;
 using WpfMyShop.windows;
+using log4net;
+using log4net.Config;
 
 namespace WpfMyShop
 {
@@ -26,9 +28,12 @@ namespace WpfMyShop
     /// </summary>
     public partial class StartupWindow : Window
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(StartupWindow));
         public StartupWindow()
         {
             InitializeComponent();
+            log4net.Util.LogLog.InternalDebugging = true;
+            XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
         }
 
         private void textEmail_MouseDown(object sender, MouseButtonEventArgs e)
@@ -86,13 +91,13 @@ namespace WpfMyShop
             if (nameServer.Equals("") || nameServer.Equals(null))
             {
 
-                //builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
-                builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
+                builder.DataSource = ".\\SQLEXPRESS01";// tên server demo
+                //builder.DataSource = "DESKTOP-DKF8GU7\\SQLSERVER2016";
             }
             else
             {
-                builder.DataSource = "DESKTOP-3A921M2";
-                //builder.DataSource = nameServer;
+                //builder.DataSource = "DESKTOP-3A921M2";
+                builder.DataSource = nameServer;
             }
 
             var nameDatabase = ConfigurationManager.AppSettings["NameDatabase"];
@@ -102,7 +107,7 @@ namespace WpfMyShop
             }
             else
             {
-                builder.InitialCatalog = "my_shop"; // tên database demo
+                //builder.InitialCatalog = "my_shop"; // tên database demo
                 builder.InitialCatalog = nameDatabase;
             }
             builder.UserID = username;
@@ -112,6 +117,7 @@ namespace WpfMyShop
             string connectionString = builder.ConnectionString;
             var connection = new SqlConnection(connectionString);
 
+            loading.Visibility = Visibility.Visible;
             connection = await Task.Run(() => {
                 var _connection = new SqlConnection(connectionString);
 
@@ -123,12 +129,14 @@ namespace WpfMyShop
                 {
 
                     _connection = null;
+                    MessageBox.Show("Can not connect to server!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message);
                 }
-
                 // Test khi chạy quá nhanh
                 //System.Threading.Thread.Sleep(3000);
                 return _connection;
             });
+            loading.Visibility = Visibility.Hidden;
 
             // save username, password if user check Remeber me
             if (connection != null)
@@ -197,9 +205,8 @@ namespace WpfMyShop
             string bufferImgClose = "assets/close.png";
             string t_imgClose = $"{baseDirectory}{bufferImgClose}";
             var bitmapImgClose = new BitmapImage(new Uri(t_imgClose, UriKind.Absolute));
-            imgClose.Source = bitmapImgClose;
 
-            string bufferImgEmail = "assets/email.png";
+            string bufferImgEmail = "assets/user.jpg";
             string t_imgEmail = $"{baseDirectory}{bufferImgEmail}";
             var bitmapImgEmail = new BitmapImage(new Uri(t_imgEmail, UriKind.Absolute));
             imgEmail.Source = bitmapImgEmail;

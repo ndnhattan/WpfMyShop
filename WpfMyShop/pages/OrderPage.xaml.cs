@@ -1,5 +1,4 @@
-﻿using Azure;
-using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -55,15 +54,15 @@ namespace WpfMyShop.pages
             var filters = new List<object>()
             {
                 new {
-                    Label = "Mới nhất",
+                    Label = "Newest",
                     Value = "new",
                 },
                 new {
-                    Label = "Giá thấp -> cao",
+                    Label = "low -> high price",
                     Value = "price ASC",
                 },
                 new {
-                    Label = "Giá cao -> thấp",
+                    Label = "high -> low price",
                     Value = "price DESC",
                 },
             };
@@ -217,7 +216,7 @@ namespace WpfMyShop.pages
                             int sold = (int)reader2["sold"];
                             int stock = (int)reader2["stock"];
                             int cost = (int)reader2["cost"];
-                            int genre_id = (int)reader2["genre_id"];
+                            int genre_id = reader2["genre_id"] == DBNull.Value ? 0 : (int)reader2["genre_id"];
 
                             var book = new Book()
                             {

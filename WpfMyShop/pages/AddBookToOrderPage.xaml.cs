@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +55,7 @@ namespace WpfMyShop.pages
                         stock = (int)((Int32)result);
                         if (stock < quantity)
                         {
-                            MessageBox.Show("Không đủ hàng");
+                            MessageBox.Show("Do not have enough books");
                             return;
                         }
                     }
@@ -64,7 +64,7 @@ namespace WpfMyShop.pages
 
             } catch(Exception ex)
             {
-                MessageBox.Show("Dữ liệu không hợp lệ");
+                MessageBox.Show("Invalid data");
                 isSuccess = false;
                 PageFinished?.Invoke(this, Tuple.Create(id, quantity));
                 if (NavigationService.CanGoBack)

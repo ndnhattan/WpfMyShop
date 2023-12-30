@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +60,7 @@ namespace WpfMyShop.pages
                 // delete data in bindingList
                 Order foundOrder = _orders.FirstOrDefault(order => order.Id == id);
                 _orders.Remove(foundOrder);
-                MessageBox.Show("Xóa thành công");
+                MessageBox.Show("Delete successfully");
 
                 // Go back previous page
                 if (NavigationService.CanGoBack)
@@ -71,7 +71,7 @@ namespace WpfMyShop.pages
             else
             {
                 // delete fail
-                MessageBox.Show("Xóa thất bại");
+                MessageBox.Show("Delete failed");
             }
         }
 

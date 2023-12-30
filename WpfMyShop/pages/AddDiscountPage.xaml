@@ -19,19 +19,19 @@
         </Grid.RowDefinitions>
 
         <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="80" >
-            <TextBox MinWidth="200" x:Name="TextboxName" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền tên" materialDesign:HintAssist.IsFloating="False"/>
+            <TextBox MinWidth="200" x:Name="TextboxName" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Name of discount" materialDesign:HintAssist.IsFloating="False"/>
         </Viewbox>
 
         <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="80" >
-            <TextBox MinWidth="200" x:Name="TextboxValue" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền giá trị giảm" materialDesign:HintAssist.IsFloating="False"/>
+            <TextBox MinWidth="200" x:Name="TextboxValue" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Reduction value" materialDesign:HintAssist.IsFloating="False"/>
         </Viewbox>
 
         <Viewbox Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="80">
-            <TextBox MinWidth="200" x:Name="TextboxCondition" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền giá trị tối thiểu" materialDesign:HintAssist.IsFloating="False"/>
+            <TextBox MinWidth="200" x:Name="TextboxCondition" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Minimum value to apply discount" materialDesign:HintAssist.IsFloating="False"/>
         </Viewbox>
 
         <Viewbox Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="80">
-            <TextBox MinWidth="200" x:Name="TextboxCurrency" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Điền loại (VNĐ, %)" materialDesign:HintAssist.IsFloating="False"/>
+            <TextBox MinWidth="200" x:Name="TextboxCurrency" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.Hint="Currency (VNĐ, %)" materialDesign:HintAssist.IsFloating="False"/>
         </Viewbox>
 
         <Grid Grid.Row="4" Margin="0,15,0,0">
@@ -39,8 +39,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="confirmBtn" Content="Thêm" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
-            <Button x:Name="cancelBtn" Content="Hủy" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
+            <Button x:Name="confirmBtn" Content="Add" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
+            <Button x:Name="cancelBtn" Content="Cancel" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
         </Grid>
     </Grid>
 </Page>

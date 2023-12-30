@@ -24,8 +24,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="-10, -10, -10, 0">
@@ -44,7 +43,7 @@
             VerticalAlignment="Center"
             Name="ProductNameTitle"
             FontSize="25"
-            Text="Thêm khách hàng"/>
+            Text="Add customer page"/>
             </materialDesign:ColorZone>
         </Grid>
         <Grid Grid.Row="1" Margin="0 5 0 0">
@@ -53,7 +52,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockAuthor" Text="Họ và tên: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockAuthor" Text="Fullname: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <TextBox x:Name="TextboxName" Text="{Binding FullName}" materialDesign:HintAssist.Hint="Nguyễn Văn A" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
@@ -65,7 +64,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" Text="Giới tính: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" Text="Sex: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <TextBox x:Name="TextboxGender" Text="{Binding Gender}" materialDesign:HintAssist.Hint="Nam" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
@@ -78,7 +77,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPrice" Text="Ngày sinh: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPrice" Text="Birthday: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <DatePicker
@@ -97,7 +96,7 @@ Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPromoPrice" Text="Số điện thoại: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
+                <TextBox BorderBrush="#eff2f7" x:Name="TextblockPromoPrice" Text="Telephone number: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <TextBox x:Name="TextboxPhoneNumber" Text="{Binding PhoneNumber}" materialDesign:HintAssist.Hint="0987654321" materialDesign:HintAssist.IsFloating="False" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="30"/>
@@ -123,19 +122,19 @@ Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="TextblocSold" Text="Địa chỉ: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="#eff2f7"/>
+                <TextBox x:Name="TextblocSold" Text="Address: " FontWeight="Bold" IsReadOnly="True" IsHitTestVisible="False" BorderBrush="#eff2f7"/>
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <TextBox x:Name="TextboxAddress" Text="{Binding Address}" Style="{StaticResource MaterialDesignOutlinedTextBox}" materialDesign:HintAssist.IsFloating="False" materialDesign:HintAssist.Hint="47 Xuân Diệu, Quận 1, TP. HCM" FontSize="30"/>
             </Viewbox>
         </Grid>
-        <Grid Grid.Row="10" Margin="0,15,0,0">
+        <Grid Grid.Row="7" Margin="0,15,0,0" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="confirmBtn" Content="Thêm" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
-            <Button x:Name="cancelBtn" Content="Hủy" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
+            <Button x:Name="confirmBtn" Content="Add" Click="confirmBtn_Click" Grid.Column="0" Width="150" Background="#3AA9AD" />
+            <Button x:Name="cancelBtn" Content="Cancel" Click="cancelBtn_Click" Grid.Column="1" Width="150" Background="#3AA9AD"/>
         </Grid>
     </Grid>
 </Page>

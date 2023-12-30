@@ -1,5 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,17 +53,40 @@ namespace WpfMyShop.pages
             var filters = new List<object>()
             {
                 new {
-                    Label = "Tăng dần",
+                    Label = "Ascending",
                     Value = "dob ASC",
                 },
                 new {
-                    Label = "Giảm dần",
+                    Label = "Descending",
                     Value = "dob DESC",
                 },
             };
 
             filterComboBox.ItemsSource = filters;
             filterComboBox.SelectedIndex = 0;
+
+            if (!Dashboard.isLoaded)
+            {
+                if (Dashboard.page.Equals("AddCustomerPage"))
+                {
+                    AddCustomerPage page = new AddCustomerPage(_customers);
+                    NavigationService.Navigate(page);
+                    Dashboard.isLoaded = true;
+
+                    if (!AddCustomerPage.isAddFail) // add successfully
+                    {
+                        int current = pagingComboBox.SelectedIndex;
+                        LoadAllBooks("");
+                        pagingComboBox.SelectedIndex = current;
+                    }
+                }
+                else if (Dashboard.page.Equals("DetailCustomerPage"))
+                {
+                    DetailCustomerPage page = new DetailCustomerPage(_customers, Dashboard.selectedIndex);
+                    NavigationService.Navigate(page);
+                    Dashboard.isLoaded = true;
+                }
+            }
         }
 
         int _totalPages = -1;
@@ -151,28 +174,28 @@ namespace WpfMyShop.pages
                 pagingComboBox.ItemsSource = pageInfos;
                 pagingComboBox.SelectedIndex = 0;
 
-                if (!Dashboard.isLoaded)
-                {
-                    //if (Dashboard.page.Equals("DetailOrderPage"))
-                    //{
-                    //    DetailOrderPage page = new DetailOrderPage(_orders, Dashboard.selectedIndex);
-                    //    NavigationService.Navigate(page);
-                    //    Dashboard.isLoaded = true;
-                    //}
-                    //else if (Dashboard.page.Equals("AddOrderPage"))
-                    //{
-                    var page = new AddCustomerPage(_customers);
-                    NavigationService.Navigate(page);
-                    Dashboard.isLoaded = true;
+                //if (!Dashboard.isLoaded)
+                //{
+                //    //if (Dashboard.page.Equals("DetailOrderPage"))
+                //    //{
+                //    //    DetailOrderPage page = new DetailOrderPage(_orders, Dashboard.selectedIndex);
+                //    //    NavigationService.Navigate(page);
+                //    //    Dashboard.isLoaded = true;
+                //    //}
+                //    //else if (Dashboard.page.Equals("AddOrderPage"))
+                //    //{
+                //    var page = new AddCustomerPage(_customers);
+                //    NavigationService.Navigate(page);
+                //    Dashboard.isLoaded = true;
 
-                    if (!AddOrderPage.isAddFail) // add successfully
-                    {
-                        int current = pagingComboBox.SelectedIndex;
-                        LoadAllBooks("");
-                        pagingComboBox.SelectedIndex = current;
-                    }
-                    //}
-                }
+                //    if (!AddOrderPage.isAddFail) // add successfully
+                //    {
+                //        int current = pagingComboBox.SelectedIndex;
+                //        LoadAllBooks("");
+                //        pagingComboBox.SelectedIndex = current;
+                //    }
+                //    //}
+                //}
             }
         }
 
